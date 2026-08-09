@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pack id="VLN-PACK-06" name="Social Teasers — 9:16" inherits="00-brand-bible.xml">
+
+  <target_tools>Google Flow / Veo 3 (primary — native 9:16 and best at slow camera moves), Kling 2.0 (best on water and vehicles), Runway Gen-4 image-to-video driven from a Midjourney still. Type is set in CapCut, Premiere or After Effects AFTER generation — never generated.</target_tools>
+
+  <pack_notes><![CDATA[Six vertical teasers for Instagram Reels and TikTok. Their job is to stir the pot: make the wrong people uncomfortable and the right people message you. Nobody explains anything. Nothing is sold. There is no call to action beyond the emblem.
+
+  RULES FOR ALL SIX:
+  1. NO TEXT IS EVER GENERATED. The hook line is typeset in post. Every video prompt ends with "no on-screen text" and every negative list bans lettering, because generated type is always broken.
+  2. Hook typography: brand serif, bone white #EDE7DC, roughly 6-7% of frame height, letter-spaced, centred, placed in the UPPER THIRD so the platform's caption and UI at the bottom do not collide with it. Hold it on screen for at least 2.5 seconds — long enough to read twice.
+  3. Structure: hook appears by 0.5s, holds, then the emblem fades up alone on black for the final 1-1.5s. No end card, no "link in bio", no arrows, no subscribe animation.
+  4. Audio: VLN-AUD-01 or VLN-AUD-03 from pack 05, ducked, with a VLN-AUD-04 SUB DROP on the emblem. Never trending audio. Never a voiceover.
+  5. Faces stay non-identifiable throughout — backs, masks, crops, shadow.
+  6. Tone check before posting: read the caption aloud. If it sounds like it is bragging about money, rewrite it. The flex is distance and taste, never the number.]]></pack_notes>
+
+  <asset id="VLN-SOC-01">
+    <title>They Chose Sides</title>
+    <filename>VLN-SOC-01.mp4</filename>
+    <aspect>9:16</aspect>
+    <duration>8s</duration>
+    <fps>24</fps>
+    <hook_text>They chose sides.</hook_text>
+    <hook_text_2>We chose each other.</hook_text_2>
+    <placement>Instagram Reels, TikTok. The flagship teaser — post this one first.</placement>
+    <prompt><![CDATA[Vertical 9:16. A single continuous slow dolly-in toward a tall arched doorway standing open in a black wall at the far end of an enormous empty ballroom, at three in the morning. Warm aged-gold light floods out of the doorway and falls toward the camera across a black marble floor, thick with volumetric haze so the beam is a solid shape in the air. Two figures in black tie stand just inside the doorway, silhouetted, shoulder to shoulder, backs to camera, absolutely still; their faces are never visible. The upper third of the frame is empty black air above the doorway. A heavy black drape at the left edge stirs slightly. Slow embers drift up through the light. The camera creeps forward at a constant crawl, no shake, no cut. Shot on 35mm anamorphic, 40mm, tungsten-balanced motion picture negative pushed one stop; T2.0, shallow depth of field, oval bokeh; single warm practical light source, deep crushed blacks with retained shadow detail, volumetric haze, subtle halation on highlights; desaturated near-monochrome palette of void black #050505, bone white #EDE7DC and aged gold #C8A96A; heavy negative space, level horizon, no eye contact with camera; fine organic film grain, print-film color science; cinematic, ceremonial, expensive, quietly melancholy. No on-screen text, no titles, no audio narration.]]></prompt>
+    <negative_prompt><![CDATA[text, watermark, letters, numbers, typography, logos, brand badges, visible faces, turning around, eye contact, smiling, crowd, bright daylight, over-lit, HDR, oversharpened, neon, cyberpunk, teal and orange grading, cartoon, anime, illustration, 3D render, CGI, unreal engine, plastic, distorted hands, extra fingers, duplicated figures, warped architecture, lens flare streaks, handheld shake, whip pan, drone swoop, speed ramp, hard cut, scene change, low resolution, jpeg artifacts, crypto, money, cash]]></negative_prompt>
+    <text_timing><![CDATA[0.5s-3.5s: "They chose sides." upper third. 3.5s-6.5s: cut the line to "We chose each other." in the same position, no animation beyond a 6-frame dissolve. 6.5s-8s: both lines out, emblem fades up centre on near-black.]]></text_timing>
+    <caption><![CDATA[Some rooms you don't get invited back to. Fine.
+
+#teamvillain]]></caption>
+    <notes><![CDATA[Cryptic, confident, not boastful. The two figures must read as allies, not as a couple — square shoulders, equal height in frame, no touching.]]></notes>
+  </asset>
+
+  <asset id="VLN-SOC-02">
+    <title>The Receipt</title>
+    <filename>VLN-SOC-02.mp4</filename>
+    <aspect>9:16</aspect>
+    <duration>7s</duration>
+    <fps>24</fps>
+    <hook_text>The mask is not a disguise.</hook_text>
+    <hook_text_2>It is a receipt.</hook_text_2>
+    <placement>Instagram Reels, TikTok. The identity statement.</placement>
+    <prompt><![CDATA[Vertical 9:16. A single continuous extreme macro shot, slowly pushing in on an aged-gold Venetian half-mask lying face-up on black marble, cracked cleanly across one cheekbone. The mask is hammered and tarnished — beaten gold leaf with dark bronze patina in its recesses, never shiny costume plastic. One warm practical rakes in from the left at a low angle, igniting the gold along the fracture and the brow ridge and leaving the eyeholes as two pools of absolute black. The polished marble throws a soft inverted reflection beneath it. The frame above the mask is empty black. Fine dust drifts slowly through the light. The only motion is the drift of dust, a slow flicker in the practical, and the camera's crawl forward. No hands, no people. Shot on 35mm anamorphic, 100mm macro, tungsten-balanced motion picture negative; T2.8, extremely shallow depth of field with only the crack critically sharp, oval bokeh; single warm practical light source, deep crushed blacks with retained shadow detail, subtle halation on the gold; desaturated near-monochrome palette of void black #050505, aged gold #C8A96A and deep bronze #8A6F3C; heavy negative space; fine organic film grain, print-film color science; still, austere, expensive, sorrowful. No on-screen text, no titles, no audio narration.]]></prompt>
+    <negative_prompt><![CDATA[text, watermark, letters, numbers, typography, logos, brand badges, feathers, sequins, glitter, ribbons, carnival mask, mardi gras, halloween, plastic mask, shiny chrome, colourful, purple, green, red, people, hands, face wearing the mask, eyes visible in the eyeholes, bright even lighting, product photography, HDR, oversharpened, cartoon, anime, illustration, 3D render, CGI, unreal engine, plastic, lens flare streaks, handheld shake, whip pan, speed ramp, hard cut, scene change, low resolution, jpeg artifacts, crypto, money, cash]]></negative_prompt>
+    <text_timing><![CDATA[0.4s-3.2s: "The mask is not a disguise." upper third. 3.2s-5.5s: "It is a receipt." same position. 5.5s-7s: emblem fades up on near-black with a SUB DROP.]]></text_timing>
+    <caption><![CDATA[You made it. We just wear it now.
+
+#teamvillain]]></caption>
+    <notes><![CDATA[Highest save-rate potential of the six because it is quotable. Keep the eyeholes black — a hint of an eye in there kills the line. Reuse the VLN-IMG-02 still as the image-to-video start frame if generating in Runway.]]></notes>
+  </asset>
+
+  <asset id="VLN-SOC-03">
+    <title>Hours For Money</title>
+    <filename>VLN-SOC-03.mp4</filename>
+    <aspect>9:16</aspect>
+    <duration>8s</duration>
+    <fps>24</fps>
+    <hook_text>We stopped trading hours for money.</hook_text>
+    <hook_text_2>Now we trade them for each other.</hook_text_2>
+    <placement>Instagram Reels, TikTok. The closest thing to an explanation the brand ever gives — and it still explains nothing.</placement>
+    <prompt><![CDATA[Vertical 9:16. A single continuous extremely slow push past a wall of dormant black machinery in an unlit room, shot at macro distance with a long lens so everything dissolves into abstraction. A shallow plane of focus catches one row of tiny warm aged-gold indicator lights pulsing and travelling in irregular breathing sequences; the rest of the frame is soft black metal and out-of-focus gold points floating as oval bokeh. Faint reflected gold crawls along a brushed dark surface in the foreground. Thin volumetric haze drifts. No screens, no monitors, no interfaces, no numbers, no letters, no charts, no graphs, no dashboards — only light, metal and darkness. Very low contrast, everything sitting low in the exposure range. In the final second the frame drifts to almost total black. The camera moves at a constant crawl, no shake, no cut. Shot on 35mm anamorphic, 85mm, tungsten-balanced motion picture negative; T2.0, extremely shallow depth of field, oval bokeh; deep crushed blacks, volumetric haze, subtle halation on the small gold highlights; desaturated near-monochrome palette of void black #050505 and aged gold #C8A96A; abstract, cold, patient, expensive. No on-screen text, no titles, no audio narration.]]></prompt>
+    <negative_prompt><![CDATA[text, watermark, numbers, letters, typography, charts, candlestick chart, graph, ticker, price display, dashboard, user interface, HUD, monitors, screens, terminals, keyboards, spreadsheets, holograms, data visualisation, matrix code rain, green digital rain, blue LEDs, cyan, neon, cyberpunk, sci-fi, RGB lighting, gaming PC, bright, high contrast, HDR, oversharpened, cartoon, anime, illustration, 3D render, CGI, unreal engine, plastic, people, faces, hands, lens flare streaks, handheld shake, whip pan, speed ramp, hard cut, scene change, low resolution, jpeg artifacts, crypto, bitcoin, money, cash, gold bars]]></negative_prompt>
+    <text_timing><![CDATA[0.5s-4s: "We stopped trading hours for money." upper third, two lines. 4s-6.5s: "Now we trade them for each other." 6.5s-8s: emblem on black.]]></text_timing>
+    <caption><![CDATA[The machine doesn't sleep so we can.
+
+#teamvillain]]></caption>
+    <notes><![CDATA[This is the one that could slide into hustle-bro territory. It survives because the visual shows nothing and the second line turns the money statement into a loyalty statement. Never post the first line without the second. No performance figures, no screenshots, ever.]]></notes>
+  </asset>
+
+  <asset id="VLN-SOC-04">
+    <title>You Can't Come Back</title>
+    <filename>VLN-SOC-04.mp4</filename>
+    <aspect>9:16</aspect>
+    <duration>10s</duration>
+    <fps>24</fps>
+    <hook_text>It's alright now.</hook_text>
+    <hook_text_2>You didn't choose me.</hook_text_2>
+    <hook_text_3>And now that I've become great, you can't come back.</hook_text_3>
+    <placement>Instagram Reels, TikTok. The sharpest one in the set. Post it when you want the DMs.</placement>
+    <prompt><![CDATA[Vertical 9:16. A single continuous, almost imperceptible slow dolly-back inside a vast unlit penthouse room, revealing a wall of floor-to-ceiling glass and a sleeping city far below. The interior is black stone and dark wood in near-darkness; one small warm aged-gold table lamp burns at the right edge and lays a single long reflection across the polished floor and into the glass. Outside, the city is mostly extinguished — a sparse constellation of tiny warm window lights rendered as soft out-of-focus oval bokeh. A single figure in a black tuxedo with the jacket off stands at the glass with their back to camera, motionless, a lowball glass in one hand; they are a silhouette and their face is never visible. Thin haze catches the lamp. Nothing else moves but the haze and one slow blink of a distant aircraft light. The camera pulls back a few centimetres over ten seconds, no shake, no cut. Shot on 35mm anamorphic, 40mm, tungsten-balanced motion picture negative pushed one stop; T2.0, shallow depth of field, oval bokeh; single warm practical light source, deep crushed blacks with retained shadow detail, volumetric haze, subtle halation on highlights; desaturated near-monochrome palette of void black #050505, bone white #EDE7DC and aged gold #C8A96A; heavy negative space, level horizon, no eye contact with camera; fine organic film grain, print-film color science; cinematic, restrained, expensive, lonely. No on-screen text, no titles, no audio narration.]]></prompt>
+    <negative_prompt><![CDATA[text, watermark, letters, numbers, typography, logos, brand badges, visible face, turning around, looking at camera, portrait, crowd, party, bright interior, all lights on, over-lit skyline, dense bright city, neon signs, billboards, cyberpunk, blue hour blue cast, teal and orange grading, HDR, oversharpened, real estate listing, architectural digest, stock photo, cartoon, anime, illustration, 3D render, CGI, archviz, unreal engine, plastic, distorted hands, extra fingers, lens flare streaks, handheld shake, whip pan, drone swoop, speed ramp, hard cut, scene change, low resolution, jpeg artifacts, crypto, money, cash]]></negative_prompt>
+    <text_timing><![CDATA[0.5s-3s: "It's alright now." upper third. 3s-5.5s: "You didn't choose me." 5.5s-8.5s: "And now that I've become great, you can't come back." set smaller, three lines. 8.5s-10s: emblem on black. Longer holds than the other teasers — this one is meant to be read slowly.]]></text_timing>
+    <caption><![CDATA[No hard feelings. Just a closed door.
+
+#teamvillain]]></caption>
+    <notes><![CDATA[Confident, never petty — the delivery has to be calm. Do not add an emoji, do not add a laughing tone, do not name or subtweet anyone. The figure never turns around; the whole line only works because he does not look back.]]></notes>
+  </asset>
+
+  <asset id="VLN-SOC-05">
+    <title>The Room You Weren't In</title>
+    <filename>VLN-SOC-05.mp4</filename>
+    <aspect>9:16</aspect>
+    <duration>8s</duration>
+    <fps>24</fps>
+    <hook_text>There was a room.</hook_text>
+    <hook_text_2>You weren't in it.</hook_text_2>
+    <placement>Instagram Reels, TikTok. The FOMO cut — the one that makes people ask what this is.</placement>
+    <prompt><![CDATA[Vertical 9:16. A single continuous slow dolly-in down the length of a very long dark walnut dining table in a cavernous private room, late — plates cleared, glasses half empty, candles burnt to stubs with long wax runs. Two rows of guests in black tie lean in toward each other mid-conversation, elbows on the linen, lit only by the line of candles down the centre of the table, so faces are half-lit, edge-lit or entirely lost in shadow and nobody looks toward the camera. One person at the far end gestures slowly with an open hand. Cigar smoke and haze hang in the candlelight. The walls beyond are pure black and the top third of the vertical frame is empty dark air above the table. The camera glides forward just above table height at a constant crawl, candle flames flickering throughout, no shake, no cut. Shot on 35mm anamorphic, 40mm, tungsten-balanced motion picture negative pushed one stop; T2.0, shallow depth of field, oval bokeh; single warm practical light source, deep crushed blacks with retained shadow detail, volumetric haze, subtle halation on highlights; desaturated near-monochrome palette of void black #050505, bone white #EDE7DC and aged gold #C8A96A; heavy negative space, no eye contact with camera; fine organic film grain, print-film color science; cinematic, intimate, conspiratorial, expensive. No on-screen text, no titles, no audio narration.]]></prompt>
+    <negative_prompt><![CDATA[text, watermark, letters, numbers, typography, logos, brand badges, wine labels, identifiable faces, faces looking at camera, smiling at camera, toasting the camera, cheering, teeth, stock photo dinner party, wedding reception, restaurant, food photography, full plates, bright chandelier, over-lit room, HDR, oversharpened, teal and orange grading, cartoon, anime, illustration, 3D render, CGI, unreal engine, plastic skin, mangled faces, duplicated people, distorted hands, extra fingers, lens flare streaks, handheld shake, whip pan, speed ramp, hard cut, scene change, low resolution, jpeg artifacts, crypto, money, cash]]></negative_prompt>
+    <text_timing><![CDATA[0.5s-3.5s: "There was a room." upper third. 3.5s-6.5s: "You weren't in it." 6.5s-8s: emblem on black.]]></text_timing>
+    <caption><![CDATA[Twelve seats. Nobody counted the bill.
+
+#teamvillain]]></caption>
+    <notes><![CDATA[Cryptic and slightly cold, which is the intent — it should read as a fact, not a taunt. Keep faces small and shadowed; a large clear face at the front of the table both breaks the discretion rule and is where models produce the worst artefacts.]]></notes>
+  </asset>
+
+  <asset id="VLN-SOC-06">
+    <title>Six In The Morning</title>
+    <filename>VLN-SOC-06.mp4</filename>
+    <aspect>9:16</aspect>
+    <duration>7s</duration>
+    <fps>24</fps>
+    <hook_text>They asked what we do all day.</hook_text>
+    <hook_text_2>This. Mostly this.</hook_text_2>
+    <placement>Instagram Reels, TikTok. The velocity cut — the closest the brand gets to playful.</placement>
+    <prompt><![CDATA[Vertical 9:16. A single continuous slow lateral track along the pit lane of a completely empty racetrack at first light, the whole circuit rented and unused. Two low dark supercars sit still and angled on damp tarmac, engines off, no drivers. The sun has not cleared the horizon; the sky is a desaturated slate gradient filling the upper half of the tall frame, with one narrow seam of warm aged-gold along the skyline, and that light rakes flat across the tarmac, turning the wet surface into a mirror and drawing a single long specular line down the shoulder of each car. Ground mist rolls slowly across the track. Empty grandstands sit as black geometry far behind, completely out of focus. No badges, no manufacturer emblems, no sponsor livery, no signage, no number plates, no people. The camera tracks left at a constant crawl, no shake, no cut. Shot on 35mm anamorphic, 32mm, tungsten-balanced motion picture negative pushed one stop; T2.8, shallow depth of field, oval bokeh; single warm low sun as the practical, deep crushed blacks with retained shadow detail, volumetric mist, subtle halation on highlights; desaturated near-monochrome palette of void black #050505, cold steel #2A3138 and aged gold #C8A96A; heavy negative space, level horizon; fine organic film grain, print-film color science; cinematic, patient, expensive, private. No on-screen text, no titles, no audio narration.]]></prompt>
+    <negative_prompt><![CDATA[text, watermark, letters, numbers, typography, logos, brand badges, sponsor livery, racing decals, door numbers, trackside signage, advertising boards, flags, marshals, crowd, spectators, pit crew, helmets, racing suits, cars driving, wheels spinning, tyre smoke, motion blur smear, bright daylight, blue sky, sunny, HDR, oversharpened, teal and orange grading, video game, forza, gran turismo, cartoon, anime, illustration, 3D render, CGI, unreal engine, plastic, lens flare streaks, handheld shake, whip pan, drone swoop, speed ramp, hard cut, scene change, low resolution, jpeg artifacts, crypto, money, cash]]></negative_prompt>
+    <text_timing><![CDATA[0.4s-3.2s: "They asked what we do all day." upper third, two lines. 3.2s-5.5s: "This. Mostly this." 5.5s-7s: emblem on black.]]></text_timing>
+    <caption><![CDATA[Empty track. Full morning. No audience.
+
+#teamvillain]]></caption>
+    <notes><![CDATA[Understated, not a flex — the cars are stationary and unbadged, and the whole point is the emptiness of the circuit, which reads as access rather than as spending. If a take shows a badge or gets bright and sunny, discard it.]]></notes>
+  </asset>
+
+  <posting_guidance>
+    <cadence><![CDATA[Two per week maximum. Scarcity is the product. Post between 21:00 and 23:30 local — the work reads as intended at night.]]></cadence>
+    <copy_rules><![CDATA[Captions stay under 15 words. No emojis. No call to action. No link in bio. No hashtag stacks — one tag is the whole strategy. Never state a number, a return, a price or an income. Never name a person, a firm, or a doubter. Never explain what the group does; if someone asks in the comments, reply with a single line or nothing at all.]]></copy_rules>
+    <reply_voice><![CDATA[Short, warm to the curious, silent to the hostile. "It's not for sale." / "You'd know if you were meant to." / "Soon." Never argue, never defend, never post proof.]]></reply_voice>
+  </posting_guidance>
+
+</pack>

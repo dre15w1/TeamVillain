@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<brand_bible id="VLN-BIBLE" version="1.0" brand="TEAM VILLAIN">
+
+  <meta>
+    <title>TEAM VILLAIN — Master Style Contract</title>
+    <purpose><![CDATA[This is the parent document. Every other pack (01 through 06) inherits from it. If a prompt in another pack contradicts this file, this file wins. When a bot loses the look, re-paste the <style_suffix> and the <universal_negative> block.]]></purpose>
+    <target_tools>Midjourney v6/v7, Google Imagen, Flux.1 [pro/dev], DALL-E 3, Nano Banana (Gemini image), Google Flow / Veo 3, Runway Gen-3/Gen-4, Kling 1.6/2.0, Sora</target_tools>
+    <consumes_into>All website slots in index.html; files land in assets/ named by asset id.</consumes_into>
+  </meta>
+
+  <positioning>
+    <one_line><![CDATA[A private, invitation-only society. Secret fraternity crossed with a modern Great Gatsby.]]></one_line>
+    <story><![CDATA[The members were doubted, labeled, and boxed in by people who chose the other side. They built an automated system that freed them from trading hours for money — "the Matrix" — and now they pour into each other. The money is assumed, never displayed. What is displayed is taste, distance, and loyalty.]]></story>
+    <emotional_core><![CDATA[Melancholy underneath opulence. A broken heart behind a gold mask. Every frame should feel like the moment AFTER the party, or five minutes before anyone else arrives. Beauty with a bruise under it.]]></emotional_core>
+    <signature_lines>
+      <line>They chose sides. We chose each other.</line>
+      <line>It's alright now. You chose sides. You didn't choose me. And now that I've become great, you can't come back.</line>
+      <line>The mask is not a disguise, it is a receipt.</line>
+    </signature_lines>
+    <tone_guardrails><![CDATA[NEVER hustle-bro. NEVER crypto-flex. No cash fans, no watch close-ups shot like an ad, no "grind" energy, no motivational-poster staging. Wealth is environmental, not held in hand. If a frame could sell a course, kill the frame.]]></tone_guardrails>
+  </positioning>
+
+  <palette>
+    <color name="Void Black" hex="#050505" role="Primary ground. Crushed blacks, the majority of every frame."/>
+    <color name="Ash Black" hex="#0A0908" role="Secondary ground, gradient partner to Void Black."/>
+    <color name="Smoke" hex="#1A1815" role="Shadow detail, fabric folds, haze body."/>
+    <color name="Bone White" hex="#EDE7DC" role="Type, marble, shirt fronts, paper. Never pure #FFFFFF."/>
+    <color name="Aged Gold" hex="#C8A96A" role="THE accent. Practical light, foil, mask, kintsugi seams, headlight warmth."/>
+    <color name="Deep Gold" hex="#8A6F3C" role="Gold in shadow, tarnish, the falloff edge of a practical."/>
+    <color name="Oxblood" hex="#3B1B1B" role="Rare, sparing. Velvet, tail lights, wine. Under 3% of frame."/>
+    <color name="Cold Steel" hex="#2A3138" role="Rare cool counterpoint — night windows, wet tarmac, pre-dawn sky."/>
+    <rule><![CDATA[Desaturate everything except gold. The image should read near-monochrome with gold as the only chromatic event. Total saturated area should stay under roughly 15% of the frame. Pure white and pure saturated primaries are banned.]]></rule>
+  </palette>
+
+  <lighting_doctrine>
+    <principle order="1"><![CDATA[ONE warm practical source per frame. A candle, a sconce, a doorway, a single headlight, a table lamp, a pool light. Everything else is falloff. If you can name two light sources, you have one too many.]]></principle>
+    <principle order="2"><![CDATA[Extreme contrast ratio. Deep crushed blacks with retained shadow detail — never muddy gray. Let 60-80% of the frame fall to near-black.]]></principle>
+    <principle order="3"><![CDATA[Volumetric haze in every interior and most exteriors. Light must be visible as a shaft or a bloom in the air, not just as a lit surface.]]></principle>
+    <principle order="4"><![CDATA[Subtle halation on highlights — a soft warm bleed around bright edges, as if shot on film with an uncoated vintage lens. Never digital glow, never bloom filter.]]></principle>
+    <principle order="5"><![CDATA[Rim and edge lighting to separate figures from black. Faces stay half-lit or lost. Nobody is evenly lit.]]></principle>
+    <principle order="6"><![CDATA[No lens flare abuse. At most one restrained horizontal streak, and only when a practical is in frame.]]></principle>
+    <banned_lighting><![CDATA[Bright daylight, midday sun, softbox beauty light, ring light, neon cyberpunk color wash, blue/orange teal grading, colored gels other than warm gold.]]></banned_lighting>
+  </lighting_doctrine>
+
+  <lens_and_film>
+    <format>Anamorphic 2x squeeze look — oval bokeh, gentle horizontal edge stretch, shallow anamorphic focus roll-off.</format>
+    <focal_lengths><![CDATA[40mm and 50mm for figures and interiors. 85mm for detail and object work. 32mm only for architecture and wide banners. No fisheye, no ultra-wide distortion on people.]]></focal_lengths>
+    <aperture>Shot near wide open — T2.0 to T2.8. Shallow depth of field with a thin, deliberate plane of focus.</aperture>
+    <film_stock><![CDATA[Photochemical look: 35mm motion picture negative, tungsten-balanced, pushed one stop. Fine organic grain, visible in shadows, never uniform digital noise. Slight gate weave on motion. Rich shadow density, gentle highlight shoulder.]]></film_stock>
+    <color_science><![CDATA[Print-film emulation. Warm highlights rolling to gold, cool-neutral shadows, low global saturation, lifted-then-crushed toe. Skin reads as warm bronze, not pink.]]></color_science>
+    <camera_motion><![CDATA[Slow and deliberate only. Dolly in, dolly out, slow lateral track, crane down, slow push on a long lens, locked-off with movement inside the frame. Speeds under roughly 4 seconds of travel per meter. NEVER handheld shake, never whip pan, never drone-swoop, never speed ramps, never orbit-spin.]]></camera_motion>
+  </lens_and_film>
+
+  <composition_rules>
+    <rule><![CDATA[Heavy negative space. The subject typically occupies less than one third of the frame. Emptiness is the point — it reads as ownership of the room.]]></rule>
+    <rule><![CDATA[Center of frame stays dark and uncluttered on any asset that sits behind a logo or headline (see 01-hero-motion). Keep the visual event in the outer thirds.]]></rule>
+    <rule><![CDATA[Symmetry for architecture and tables. Asymmetry for figures. A lone figure sits off-center, at the edge of the light.]]></rule>
+    <rule><![CDATA[Faces are non-identifiable wherever a person appears: back to camera, half-lit into shadow, masked, cropped above the lip, out of focus, or turned away. This is a brand rule, not a stylistic preference — the society is discreet.]]></rule>
+    <rule><![CDATA[Foreground occlusion — shoot past a doorframe, a shoulder, a candle flame, a bottle, a curtain edge. The viewer is always slightly outside the room.]]></rule>
+    <rule><![CDATA[Horizon and architectural lines stay level. No dutch angles.]]></rule>
+    <rule><![CDATA[No group looking at camera. No eye contact with lens. Ever.]]></rule>
+  </composition_rules>
+
+  <wardrobe>
+    <core><![CDATA[Black tie and tailoring. Midnight-black tuxedos, black silk grosgrain lapels, bone-white dress shirts, black bow ties worn slightly loosened late in the night. Full-length black overcoats. Black turtlenecks under tailored jackets. Bare feet or black patent oxfords.]]></core>
+    <women><![CDATA[Floor-length black and bone silk, long gloves, minimal jewelry in aged gold only. Never overtly styled as a fashion editorial — these are members, not models.]]></women>
+    <accents><![CDATA[Aged gold signet ring. A single thin gold chain. Venetian-style gold half-masks. Gold cufflinks catching one point of light. No visible brand badges, no logos, no monograms other than the TEAM VILLAIN emblem.]]></accents>
+    <banned><![CDATA[Streetwear, hoodies, sneakers, athleisure, sunglasses indoors, chunky jewelry, iced-out anything, designer logos, dollar-sign motifs.]]></banned>
+  </wardrobe>
+
+  <motifs>
+    <motif name="The Mask"><![CDATA[An aged gold Venetian half-mask. Sometimes worn, more often lowered in a hand, set down on marble, or cracked. It is a receipt, not a disguise.]]></motif>
+    <motif name="Kintsugi"><![CDATA[Gold-repaired fracture. Broken porcelain, cracked glass, split marble with molten-gold seams. The damage is the ornament.]]></motif>
+    <motif name="The Doorway"><![CDATA[A single rectangle or arch of warm light in a black wall, with a figure silhouetted at its threshold. The recurring compositional signature of the brand.]]></motif>
+    <motif name="The Long Table"><![CDATA[Twelve seats, candles burnt low, plates cleared, people leaning in. The gathering after the gathering.]]></motif>
+    <motif name="Haze and Ember"><![CDATA[Slow drifting particulate in a light shaft. Cigar smoke, dust, sea mist, tyre smoke, candle carbon.]]></motif>
+    <motif name="Wet Black Surfaces"><![CDATA[Rain-slick tarmac, black marble, still pool water, polished car paint. Blackness that reflects one gold light.]]></motif>
+    <motif name="The Empty Opulent Room"><![CDATA[Ballrooms, penthouses, marble halls — magnificent and unoccupied. Wealth as silence.]]></motif>
+  </motifs>
+
+  <universal_negative>
+    <negative_prompt><![CDATA[text, watermark, signature, caption, subtitles, letters, numbers, typography, logos, brand badges, trademarks, real celebrities, recognizable public figures, cartoon, anime, illustration, 3D render, CGI, plastic skin, video game render, unreal engine, HDR, oversharpened, clarity slider, over-processed, bright daylight, midday sun, overexposed, flat lighting, stock photo, cheesy smile, teeth, posed model looking at camera, thumbs up, crypto, bitcoin, money stacks, cash, banknotes, gold bars, luxury-brand product shot, guns, weapons, drugs, illegal activity, gore, nudity, distorted hands, extra fingers, malformed limbs, mangled faces, duplicated people, warped architecture, low resolution, jpeg artifacts, blurry, noisy digital grain, neon, cyberpunk, teal and orange grading, lens flare streaks everywhere, motion blur smear, fisheye, dutch angle, drone swoop, whip pan, handheld shake]]></negative_prompt>
+    <usage><![CDATA[Append this verbatim to the negative field of every generation. In Midjourney, convert to --no with comma-separated terms. In Veo/Runway/Kling, paste into the negative prompt box or append as "Avoid: ..." at the end of the prompt.]]></usage>
+  </universal_negative>
+
+  <style_suffix>
+    <string><![CDATA[Shot on 35mm anamorphic, tungsten-balanced motion picture negative pushed one stop; T2.0, shallow depth of field, oval bokeh; single warm practical light source, deep crushed blacks with retained shadow detail, volumetric haze, subtle halation on highlights; desaturated near-monochrome palette of void black #050505, bone white #EDE7DC and aged gold #C8A96A; heavy negative space, level horizon, no eye contact with camera; fine organic film grain, print-film color science; cinematic, restrained, expensive, quietly melancholy.]]></string>
+    <motion_addendum><![CDATA[Camera moves slowly and deliberately — dolly or crane only, constant speed, no handheld shake, no speed ramp; motion inside the frame is subtle and continuous (haze drift, candle flicker, fabric, water).]]></motion_addendum>
+    <usage><![CDATA[Append <string> to the end of any still prompt. For motion, append <string> then <motion_addendum>. If a bot has a character limit, drop from the end: the palette and lighting clauses are the ones that must survive.]]></usage>
+  </style_suffix>
+
+  <tool_tuning>
+    <tool name="Midjourney"><![CDATA[Append --style raw --ar <aspect> --s 250 --c 8. Use --no with the universal negative terms. Avoid --stylize above 400, it invents color.]]></tool>
+    <tool name="Flux"><![CDATA[Responds best to full natural-language paragraphs. Keep the prompt as prose, guidance 3.0-3.5, do not bullet the style suffix.]]></tool>
+    <tool name="Imagen / Nano Banana"><![CDATA[Lead with the subject sentence, then the lighting sentence, then the style suffix. Add "photograph, not illustration" if it drifts graphic.]]></tool>
+    <tool name="DALL-E 3"><![CDATA[Prefix with "A photograph." and add "Do not add any text or lettering." It reinterprets prompts — restate the negative constraints as positive statements where possible.]]></tool>
+    <tool name="Veo 3 / Google Flow"><![CDATA[Include an explicit camera-move sentence and a "no audio narration, no on-screen text" clause. Specify duration and that the shot is a single continuous take with no cuts.]]></tool>
+    <tool name="Runway / Kling"><![CDATA[Best driven from a still you already approved. Generate the still first with the matching prompt, then image-to-video with only the motion sentence as the prompt.]]></tool>
+  </tool_tuning>
+
+  <output_contract>
+    <naming><![CDATA[Save every generation as assets/<ASSET-ID>.<ext>, e.g. assets/VLN-IMG-05.jpg or assets/VLN-VID-01.mp4. The website probes .jpg, .png, .webp for stills and .mp4, .webm for motion, in that order.]]></naming>
+    <video_specs><![CDATA[H.264 MP4, yuv420p, faststart, no audio track (hero and b-roll play muted and looped), 24fps for film cadence, target under 8 MB per loop for web.]]></video_specs>
+    <still_specs><![CDATA[Long edge 2400px minimum, sRGB, JPEG quality 82-88. Do not sharpen on export.]]></still_specs>
+  </output_contract>
+
+</brand_bible>

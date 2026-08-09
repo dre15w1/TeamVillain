@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TEAM VILLAIN — By Invitation</title>
+<meta name="description" content="A private society of builders, givers and outliers. They chose sides. We chose each other.">
+<meta property="og:title" content="TEAM VILLAIN">
+<meta property="og:description" content="They chose sides. We chose each other.">
+<meta name="theme-color" content="#050505">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050505'/%3E%3Ccircle cx='32' cy='30' r='21' fill='none' stroke='%23EFE6D5' stroke-width='3' stroke-dasharray='96 14'/%3E%3Cpath d='M21 22 L32 56 L43 22 L36 22 L32 40 L28 22 Z' fill='%23EFE6D5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@400..900&family=Jost:ital,wght@0,200..700;1,200..600&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     TEAM VILLAIN — single-file site
+     ------------------------------------------------------------
+     SWAP IN YOUR REAL LOGO:
+       Put your PNG at  assets/team-villain.png
+       (or edit BRAND.logo below to a path / base64 data URL)
+       Leave it null and the built-in vector emblem is used.
+
+     DROP IN GENERATED MEDIA:
+       Every media slot below carries data-asset="VLN-XXX-00".
+       Save your generated file as  assets/VLN-XXX-00.jpg  (or .mp4)
+       and it appears automatically. Asset IDs match the XML packs.
+     ============================================================ -->
+
+<style>
+/* ========== TOKENS ========== */
+:root{
+  --ink:#050505; --ink-2:#0a0908; --ink-3:#111010;
+  --bone:#EFE6D5; --bone-dim:#b8ae9e;
+  --gold:#C8A96A; --gold-hi:#EBD9A8; --gold-lo:#6d5a30;
+  --ash:#6f6a61; --line:rgba(200,169,106,.18);
+  --ff-display:"Bodoni Moda",Georgia,serif;
+  --ff-emblem:"Cinzel",Georgia,serif;
+  --ff-ui:"Jost",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gut:clamp(20px,5vw,96px);
+  --maxw:1360px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--bone);
+  font-family:var(--ff-ui);font-weight:300;font-size:clamp(15px,1.02vw,17px);
+  line-height:1.75;letter-spacing:.012em;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body.locked{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:#0a0908}
+
+/* ========== ATMOSPHERE ========== */
+.grain{position:fixed;inset:-50%;z-index:9000;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 5.2s steps(6) infinite;mix-blend-mode:overlay}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-4%)}60%{transform:translate(-3%,-3%)}80%{transform:translate(4%,4%)}100%{transform:translate(0,0)}}
+.vignette{position:fixed;inset:0;z-index:8900;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 45%,transparent 32%,rgba(0,0,0,.55) 78%,rgba(0,0,0,.92) 100%)}
+.scanlines{position:fixed;inset:0;z-index:8800;pointer-events:none;opacity:.35;
+  background:repeating-linear-gradient(180deg,rgba(255,255,255,.018) 0 1px,transparent 1px 4px)}
+#embers{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.75}
+.halo{position:fixed;z-index:1;pointer-events:none;width:70vmax;height:70vmax;border-radius:50%;
+  left:50%;top:35%;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(200,169,106,.075),rgba(200,169,106,.02) 40%,transparent 68%);
+  filter:blur(30px);transition:opacity .8s}
+
+/* ========== CURSOR ========== */
+.cursor{position:fixed;z-index:9500;width:26px;height:26px;border:1px solid rgba(200,169,106,.5);
+  border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);
+  transition:width .3s var(--ease),height .3s var(--ease),background .3s,opacity .3s;mix-blend-mode:difference}
+.cursor.big{width:74px;height:74px;background:rgba(200,169,106,.1);border-color:transparent}
+@media (hover:none){.cursor{display:none}}
+
+/* ========== SEAL / PRELOADER ========== */
+#seal{position:fixed;inset:0;z-index:9800;background:var(--ink);display:grid;place-items:center;
+  transition:opacity 1.1s var(--ease),visibility 1.1s}
+#seal.gone{opacity:0;visibility:hidden}
+#seal .inner{text-align:center;padding:0 24px}
+#seal .mark{width:min(300px,62vw);margin:0 auto 30px;opacity:0;animation:sealIn 1.5s var(--ease) .25s forwards}
+#seal .lede{font-family:var(--ff-emblem);font-size:clamp(9px,1vw,11px);letter-spacing:.62em;
+  text-transform:uppercase;color:var(--gold);opacity:0;animation:sealIn 1.4s var(--ease) 1s forwards}
+#seal .bar{width:min(320px,60vw);height:1px;background:rgba(200,169,106,.15);margin:26px auto 0;overflow:hidden}
+#seal .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  animation:load 2.1s var(--ease) .5s forwards}
+@keyframes sealIn{to{opacity:1}}
+@keyframes load{to{width:100%}}
+
+/* ========== NAV ========== */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:8000;display:flex;align-items:center;
+  justify-content:space-between;padding:20px var(--gut);
+  transition:background .5s,backdrop-filter .5s,padding .5s,border-color .5s;
+  border-bottom:1px solid transparent}
+header.nav.stuck{background:rgba(5,5,5,.72);backdrop-filter:blur(16px) saturate(120%);
+  border-bottom-color:var(--line);padding:13px var(--gut)}
+.nav .crest{display:flex;align-items:center;gap:12px}
+.nav .crest svg,.nav .crest img{width:34px;height:34px;object-fit:contain}
+.nav .crest b{font-family:var(--ff-emblem);font-weight:600;font-size:11px;letter-spacing:.42em;
+  text-transform:uppercase;color:var(--bone)}
+.nav nav{display:flex;gap:34px;align-items:center}
+.nav nav a{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--bone-dim);
+  position:relative;padding:6px 0;transition:color .35s}
+.nav nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .45s var(--ease)}
+.nav nav a:hover{color:var(--gold-hi)}
+.nav nav a:hover::after{width:100%}
+.nav .cta{border:1px solid var(--line);padding:11px 20px;font-size:10px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--gold);transition:.45s var(--ease);white-space:nowrap}
+.nav .cta:hover{background:var(--gold);color:#080706;border-color:var(--gold);letter-spacing:.36em}
+.burger{display:none;width:34px;height:34px;border:1px solid var(--line);background:none;cursor:pointer;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger i{display:block;width:15px;height:1px;background:var(--gold)}
+@media(max-width:960px){
+  .nav nav{position:fixed;inset:0;background:rgba(5,5,5,.97);backdrop-filter:blur(18px);flex-direction:column;
+    justify-content:center;gap:26px;transform:translateY(-101%);transition:transform .7s var(--ease)}
+  .nav nav.open{transform:none}
+  .nav nav a{font-size:15px;letter-spacing:.34em}
+  .burger{display:flex;z-index:2}
+  .nav .cta{display:none}
+}
+
+/* ========== LAYOUT ========== */
+section{position:relative;z-index:3}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.pad{padding:clamp(90px,13vh,180px) 0}
+.eyebrow{font-family:var(--ff-emblem);font-size:10px;letter-spacing:.55em;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:16px;margin:0 0 26px}
+.eyebrow::before{content:"";width:38px;height:1px;background:var(--gold);opacity:.6}
+h1,h2,h3{font-family:var(--ff-display);font-weight:400;line-height:1.02;margin:0;letter-spacing:-.015em}
+h2{font-size:clamp(38px,6.4vw,92px)}
+h3{font-size:clamp(21px,2.3vw,32px);line-height:1.16}
+.lead{font-size:clamp(16px,1.35vw,20px);color:var(--bone-dim);max-width:62ch;font-weight:200;line-height:1.85}
+.rule{height:1px;background:linear-gradient(90deg,var(--line),transparent);margin:0}
+.gold{color:var(--gold)}
+em.i{font-style:italic;color:var(--gold-hi)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(38px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv[data-d="1"]{transition-delay:.11s}.rv[data-d="2"]{transition-delay:.22s}
+.rv[data-d="3"]{transition-delay:.33s}.rv[data-d="4"]{transition-delay:.44s}
+.rv[data-d="5"]{transition-delay:.55s}.rv[data-d="6"]{transition-delay:.66s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important}}
+
+/* ========== MEDIA SLOTS ========== */
+.media{position:relative;overflow:hidden;background:var(--ink-2);isolation:isolate}
+.media::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(5,5,5,.72),transparent 55%),radial-gradient(90% 80% at 50% 50%,transparent 40%,rgba(5,5,5,.6))}
+.media img,.media video{width:100%;height:100%;object-fit:cover;filter:grayscale(.32) contrast(1.1) brightness(.86);
+  transition:transform 1.6s var(--ease),filter 1.2s}
+.media:hover img,.media:hover video{transform:scale(1.055);filter:grayscale(0) contrast(1.14) brightness(.95)}
+.slot-ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:22px;
+  background:
+    radial-gradient(70% 70% at 50% 40%,rgba(200,169,106,.09),transparent 70%),
+    repeating-linear-gradient(135deg,rgba(200,169,106,.05) 0 1px,transparent 1px 13px),
+    var(--ink-2)}
+.slot-ph span{font-family:var(--ff-emblem);font-size:9.5px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-lo)}
+.slot-ph b{display:block;font-family:var(--ff-ui);font-weight:400;font-size:10px;letter-spacing:.24em;color:var(--ash);margin-top:9px}
+
+/* ========== HERO ========== */
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;padding:104px 0 170px}
+.hero .bg{position:absolute;inset:0;z-index:-1}
+.hero .bg .media{position:absolute;inset:0}
+.hero .bg .media::after{background:radial-gradient(78% 68% at 50% 44%,transparent 8%,rgba(5,5,5,.86) 62%,#050505 100%)}
+.hero .bg .slot-ph{background:radial-gradient(60% 55% at 50% 42%,rgba(200,169,106,.1),transparent 70%),var(--ink)}
+.hero .bg .slot-ph span,.hero .bg .slot-ph b{display:none}
+.hero-mark{width:min(400px,66vw);margin:0 auto;filter:drop-shadow(0 0 70px rgba(200,169,106,.34)) drop-shadow(0 0 160px rgba(200,169,106,.16))}
+.hero h1{font-size:clamp(28px,4.2vw,60px);margin:22px auto 0;max-width:19ch;font-style:italic;font-weight:400}
+.hero h1 .l{display:block;overflow:hidden}
+.hero h1 .l i{display:block;font-style:italic;transform:translateY(105%);animation:rise 1.35s var(--ease) forwards}
+.hero h1 .l:nth-child(2) i{animation-delay:.14s}
+@keyframes rise{to{transform:none}}
+.hero p.sub{margin:24px auto 0;max-width:56ch;color:var(--bone-dim);font-weight:200;
+  font-size:clamp(14px,1.15vw,17px);opacity:0;animation:sealIn 1.4s var(--ease) .8s forwards}
+.hero .acts{margin-top:36px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+  opacity:0;animation:sealIn 1.4s var(--ease) 1.05s forwards}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 32px;border:1px solid var(--gold);
+  color:var(--gold);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;
+  transition:.55s var(--ease);position:relative;overflow:hidden}
+.btn span{position:relative;z-index:2}
+.btn::before{content:"";position:absolute;inset:0;background:var(--gold);transform:translateY(101%);transition:transform .55s var(--ease)}
+.btn:hover{color:#080706}
+.btn:hover::before{transform:none}
+.btn.ghost{border-color:var(--line);color:var(--bone-dim)}
+.btn.ghost::before{background:rgba(239,230,213,.9)}
+.btn.ghost:hover{color:#080706;border-color:var(--bone)}
+.scroll-cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;
+  align-items:center;gap:12px;font-size:9px;letter-spacing:.42em;text-transform:uppercase;color:var(--ash)}
+.scroll-cue i{width:1px;height:56px;background:linear-gradient(var(--gold),transparent);animation:cue 2.4s infinite}
+@keyframes cue{0%,100%{opacity:.25;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ========== MARQUEE ========== */
+.marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;overflow:hidden;
+  background:linear-gradient(180deg,rgba(200,169,106,.035),transparent)}
+.marq .track{display:flex;gap:60px;width:max-content;animation:slide 46s linear infinite}
+.marq span{font-family:var(--ff-display);font-style:italic;font-size:clamp(16px,1.9vw,26px);color:var(--gold-lo);
+  white-space:nowrap;display:flex;align-items:center;gap:60px}
+.marq span::after{content:"◆";font-size:7px;color:var(--gold);font-style:normal}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ========== VERDICT ========== */
+.verdict{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,110px);align-items:center}
+.verdict .media{aspect-ratio:3/4}
+.quote{font-family:var(--ff-display);font-style:italic;font-size:clamp(24px,3.2vw,46px);line-height:1.22;
+  border-left:1px solid var(--gold);padding:6px 0 6px 30px;margin:44px 0 0}
+.quote small{display:block;font-family:var(--ff-ui);font-style:normal;font-size:10px;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--ash);margin-top:22px}
+@media(max-width:860px){.verdict{grid-template-columns:1fr}.verdict .media{aspect-ratio:4/3}}
+
+/* ========== MASK TRIPTYCH ========== */
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,30px)}
+.tri .cell{position:relative}
+.tri .media{aspect-ratio:4/5;margin-bottom:22px}
+.tri h3{margin-bottom:12px}
+.tri p{color:var(--bone-dim);font-weight:200;font-size:15px;margin:0}
+.tri .n{font-family:var(--ff-emblem);font-size:10px;letter-spacing:.4em;color:var(--gold);margin-bottom:10px;display:block}
+@media(max-width:900px){.tri{grid-template-columns:1fr}}
+
+/* ========== DOCTRINE ========== */
+.doctrine{background:linear-gradient(180deg,#050505,#0a0908 35%,#050505)}
+.tenets{border-top:1px solid var(--line)}
+.tenet{display:grid;grid-template-columns:90px 1fr 1.15fr;gap:clamp(18px,4vw,60px);align-items:start;
+  padding:38px 0;border-bottom:1px solid var(--line);position:relative;transition:padding .6s var(--ease)}
+.tenet::before{content:"";position:absolute;left:calc(var(--gut)*-1);right:calc(var(--gut)*-1);top:0;bottom:0;
+  background:linear-gradient(90deg,rgba(200,169,106,.07),transparent 70%);opacity:0;transition:opacity .6s}
+.tenet:hover::before{opacity:1}
+.tenet:hover{padding-left:14px}
+.tenet .num{font-family:var(--ff-emblem);font-size:11px;letter-spacing:.3em;color:var(--gold);padding-top:9px}
+.tenet h3{font-style:italic}
+.tenet p{margin:0;color:var(--bone-dim);font-weight:200;font-size:15px}
+@media(max-width:820px){.tenet{grid-template-columns:60px 1fr}.tenet p{grid-column:2}}
+
+/* ========== ENGINE ========== */
+.engine{position:relative;overflow:hidden;text-align:center}
+.engine .media{position:absolute;inset:0;z-index:-1;opacity:.34}
+.engine .tape{font-family:var(--ff-ui);font-size:10.5px;letter-spacing:.32em;color:var(--gold-lo);
+  white-space:nowrap;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 0;margin:52px 0 0}
+.engine .tape div{display:flex;gap:44px;width:max-content;animation:slide 34s linear infinite}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:56px;border:1px solid var(--line)}
+.stat{background:var(--ink);padding:34px 18px}
+.stat b{display:block;font-family:var(--ff-display);font-size:clamp(30px,4vw,58px);color:var(--bone);line-height:1}
+.stat span{display:block;font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--ash);margin-top:12px}
+@media(max-width:760px){.stats{grid-template-columns:1fr 1fr}}
+
+/* ========== GATHERINGS ========== */
+.gath{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.6vw,40px)}
+.card{position:relative;overflow:hidden;border:1px solid var(--line);transition:border-color .6s,transform .8s var(--ease)}
+.card:hover{border-color:rgba(200,169,106,.42);transform:translateY(-6px)}
+.card .media{aspect-ratio:16/10}
+.card .body{padding:clamp(24px,2.4vw,38px)}
+.card .meta{display:flex;justify-content:space-between;gap:16px;font-size:9.5px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:16px;flex-wrap:wrap}
+.card h3{font-style:italic;margin-bottom:14px}
+.card p{margin:0;color:var(--bone-dim);font-weight:200;font-size:14.5px}
+.card .tag{position:absolute;top:16px;left:16px;z-index:3;background:rgba(5,5,5,.72);backdrop-filter:blur(8px);
+  border:1px solid var(--line);padding:7px 13px;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.card.wide{grid-column:1/-1}
+.card.wide .media{aspect-ratio:21/8}
+@media(max-width:860px){.gath{grid-template-columns:1fr}.card.wide .media{aspect-ratio:16/10}}
+
+/* ========== CIRCLE ========== */
+.circle-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);
+  border:1px solid var(--line)}
+.who{background:var(--ink);padding:32px 26px;transition:background .6s}
+.who:hover{background:var(--ink-3)}
+.who b{display:block;font-family:var(--ff-display);font-style:italic;font-size:20px;color:var(--bone);margin-bottom:9px}
+.who span{font-size:13.5px;color:var(--ash);font-weight:200}
+
+/* ========== AUDIENCE / FORM ========== */
+.audience{background:linear-gradient(180deg,#050505,#0b0a09)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:52px}
+.field{position:relative}
+.field.full{grid-column:1/-1}
+.field label{display:block;font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--ash);margin-bottom:11px}
+.field input,.field textarea,.field select{
+  width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--bone);
+  font-family:var(--ff-ui);font-size:15px;font-weight:300;padding:13px 0;transition:border-color .5s;outline:none}
+.field textarea{resize:vertical;min-height:110px}
+.field select{color:var(--bone-dim)}
+.field select option{background:#0a0908}
+.field input:focus,.field textarea:focus,.field select:focus{border-bottom-color:var(--gold)}
+.field input::placeholder,.field textarea::placeholder{color:#4c4842}
+.consent{grid-column:1/-1;display:flex;gap:13px;align-items:flex-start;font-size:12.5px;color:var(--ash);font-weight:200}
+.consent input{width:15px;height:15px;accent-color:var(--gold);margin-top:4px;flex:0 0 auto}
+.form .send{grid-column:1/-1;display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.form .send small{font-size:11px;color:#4c4842;letter-spacing:.06em}
+.sent{grid-column:1/-1;border:1px solid var(--gold);padding:26px;text-align:center;display:none}
+.sent.show{display:block}
+.sent b{font-family:var(--ff-display);font-style:italic;font-size:23px;display:block;margin-bottom:9px}
+.sent span{font-size:13px;color:var(--bone-dim)}
+@media(max-width:760px){.form{grid-template-columns:1fr}}
+
+/* ========== FOOTER ========== */
+footer{border-top:1px solid var(--line);padding:70px 0 46px;text-align:center}
+footer .fmark{width:112px;margin:0 auto 26px;opacity:.85}
+footer .say{font-family:var(--ff-display);font-style:italic;font-size:clamp(18px,2.1vw,27px);margin:0 auto 30px;max-width:34ch}
+footer .fnav{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+footer .fnav a{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--ash);transition:color .4s}
+footer .fnav a:hover{color:var(--gold)}
+footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#3d3a35}
+
+/* progress */
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold-lo),var(--gold),var(--gold-hi));z-index:8500;transition:width .12s linear}
+</style>
+</head>
+<body class="locked">
+
+<div class="grain"></div><div class="scanlines"></div><div class="vignette"></div>
+<div class="halo" id="halo"></div>
+<canvas id="embers"></canvas>
+<div class="cursor" id="cur"></div>
+<div class="prog" id="prog"></div>
+
+<!-- ========= EMBLEM (inline SVG master; cloned everywhere) ========= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.028 0.05" numOctaves="4" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="rough2"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="21" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <linearGradient id="bonegrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F6EEDC"/><stop offset="55%" stop-color="#E4D8BF"/><stop offset="100%" stop-color="#C0AF8C"/>
+    </linearGradient>
+    <radialGradient id="discg" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#15130f"/><stop offset="100%" stop-color="#080706"/>
+    </radialGradient>
+
+    <symbol id="emblem" viewBox="0 0 520 420">
+      <!-- glow disc -->
+      <ellipse cx="260" cy="196" rx="150" ry="150" fill="url(#discg)"/>
+      <!-- brush ring: several arcs, uneven -->
+      <g filter="url(#rough)" fill="none" stroke="url(#bonegrad)" stroke-linecap="round">
+        <path d="M132 246a138 138 0 0 1 22-152" stroke-width="11" opacity=".95"/>
+        <path d="M162 84a138 138 0 0 1 174-8" stroke-width="8"/>
+        <path d="M348 86a138 138 0 0 1 44 118" stroke-width="12"/>
+        <path d="M390 220a138 138 0 0 1-70 105" stroke-width="9" opacity=".9"/>
+        <path d="M306 331a138 138 0 0 1-150-30" stroke-width="13"/>
+        <path d="M146 262a138 138 0 0 1-14-30" stroke-width="6" opacity=".7"/>
+      </g>
+      <!-- TEAM -->
+      <text x="260" y="140" text-anchor="middle" fill="url(#bonegrad)"
+        font-family="Cinzel,Georgia,serif" font-size="40" letter-spacing="17" font-weight="500">TEAM</text>
+      <!-- VILLAIN slash lettering -->
+      <g filter="url(#rough2)">
+        <text x="258" y="236" text-anchor="middle" fill="url(#bonegrad)"
+          font-family="Bodoni Moda,Georgia,serif" font-style="italic" font-weight="900"
+          font-size="104" letter-spacing="-1" transform="rotate(-7 258 236)">VILLAIN</text>
+      </g>
+      <!-- slashing strokes through the word -->
+      <g filter="url(#rough)" stroke="url(#bonegrad)" stroke-linecap="round" fill="none">
+        <path d="M34 176 L196 250" stroke-width="9"/>
+        <path d="M40 186 L150 236" stroke-width="4" opacity=".8"/>
+        <path d="M330 214 L500 128" stroke-width="10"/>
+        <path d="M352 236 L486 176" stroke-width="4" opacity=".75"/>
+        <path d="M120 214 L400 196" stroke-width="3" opacity=".55"/>
+      </g>
+      <!-- V spear descender -->
+      <g filter="url(#rough2)" fill="url(#bonegrad)">
+        <path d="M212 228 L262 400 L268 244 L246 236 Z"/>
+        <path d="M292 236 L268 250 L266 300 Z" opacity=".85"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ========= SEAL ========= -->
+<div id="seal">
+  <div class="inner">
+    <div class="mark"><svg viewBox="0 0 520 420" style="width:100%;height:auto"><use href="#emblem"/></svg></div>
+    <div class="lede">By Invitation — Est. MMXXVI</div>
+    <div class="bar"><i></i></div>
+  </div>
+</div>
+
+<!-- ========= NAV ========= -->
+<header class="nav" id="nav">
+  <a class="crest" href="#top">
+    <svg viewBox="0 0 520 420"><use href="#emblem"/></svg>
+    <b>Team Villain</b>
+  </a>
+  <nav id="menu">
+    <a href="#verdict">The Verdict</a>
+    <a href="#mask">The Mask</a>
+    <a href="#doctrine">Doctrine</a>
+    <a href="#engine">The Engine</a>
+    <a href="#gatherings">Gatherings</a>
+    <a href="#audience">Audience</a>
+  </nav>
+  <a class="cta" href="#audience">Request an Audience</a>
+  <button class="burger" id="burger" aria-label="Menu"><i></i><i></i></button>
+</header>
+
+<!-- ========= HERO ========= -->
+<section class="hero" id="top">
+  <div class="bg">
+    <div class="media" data-asset="VLN-VID-01" data-type="video"></div>
+  </div>
+  <div class="wrap">
+    <div class="hero-mark"><svg viewBox="0 0 520 420" style="width:100%;height:auto"><use href="#emblem"/></svg></div>
+    <h1>
+      <span class="l"><i>They chose sides.</i></span>
+      <span class="l"><i>We chose each other.</i></span>
+    </h1>
+    <p class="sub">A private society of builders, givers and outliers — the ones who were counted out, boxed in, and quietly became the thing nobody invited.</p>
+    <div class="acts">
+      <a class="btn" href="#audience"><span>Request an Audience</span></a>
+      <a class="btn ghost" href="#verdict"><span>Read the Verdict</span></a>
+    </div>
+  </div>
+  <div class="scroll-cue">Descend<i></i></div>
+</section>
+
+<!-- ========= MARQUEE ========= -->
+<div class="marq">
+  <div class="track">
+    <span>Loyalty is the only currency that never inflates</span>
+    <span>Doubt was the tuition</span>
+    <span>We do not ask for a seat — we build the table</span>
+    <span>The mask is not a disguise, it is a receipt</span>
+    <span>Give first. Always.</span>
+    <span>Loyalty is the only currency that never inflates</span>
+    <span>Doubt was the tuition</span>
+    <span>We do not ask for a seat — we build the table</span>
+    <span>The mask is not a disguise, it is a receipt</span>
+    <span>Give first. Always.</span>
+  </div>
+</div>
+
+<!-- ========= VERDICT ========= -->
+<section class="pad" id="verdict">
+  <div class="wrap verdict">
+    <div class="rv">
+      <div class="media" data-asset="VLN-IMG-01"></div>
+    </div>
+    <div>
+      <p class="eyebrow rv">Chapter I — The Verdict</p>
+      <h2 class="rv" data-d="1">They wrote us<br><em class="i">off.</em></h2>
+      <p class="lead rv" data-d="2" style="margin-top:30px">
+        Long before there was a name, there was a room we were not invited into. A verdict handed down by people
+        who never did the work: <em class="i">too much, too different, too early, not enough.</em>
+        We were labeled. Boxed. Bet against. And so we stopped applying — and started building.
+      </p>
+      <p class="lead rv" data-d="3" style="margin-top:22px">
+        Everything you're about to read was made in that silence. Not out of spite. Out of necessity.
+        A man with nothing to prove to you has everything left to give to his own.
+      </p>
+      <blockquote class="quote rv" data-d="4">
+        “It's alright now. You chose sides. You didn't choose me.<br>
+        And now that I've become great — you can't come back.”
+        <small>— The founding line</small>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ========= MASK ========= -->
+<section class="pad" id="mask" style="background:linear-gradient(180deg,#050505,#0a0908 50%,#050505)">
+  <div class="wrap">
+    <p class="eyebrow rv">Chapter II — The Mask</p>
+    <h2 class="rv" data-d="1" style="max-width:16ch">Why we answer to <em class="i">villain.</em></h2>
+    <p class="lead rv" data-d="2" style="margin:30px 0 62px">
+      Villain was never our word. It was theirs — the name given to anyone who refuses the shape they were assigned.
+      We took it, gilded it, and wore it on purpose. The mask isn't there to hide a face. It's there so the work speaks first.
+    </p>
+    <div class="tri">
+      <div class="cell rv" data-d="1">
+        <div class="media" data-asset="VLN-IMG-02"></div>
+        <span class="n">I</span><h3>The Label</h3>
+        <p>They needed a word for people they couldn't predict. We stopped arguing with it around the time it stopped being an insult.</p>
+      </div>
+      <div class="cell rv" data-d="2">
+        <div class="media" data-asset="VLN-IMG-03"></div>
+        <span class="n">II</span><h3>The Broken Heart</h3>
+        <p>Everyone here was left somewhere. We don't hide the crack — we pour gold into it and hand the cup to the next man.</p>
+      </div>
+      <div class="cell rv" data-d="3">
+        <div class="media" data-asset="VLN-IMG-04"></div>
+        <span class="n">III</span><h3>The Turn</h3>
+        <p>Self-actualized, loyal, good at heart. That's the whole test. Villain on the outside, patron on the inside.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= DOCTRINE ========= -->
+<section class="pad doctrine" id="doctrine">
+  <div class="wrap">
+    <p class="eyebrow rv">Chapter III — Doctrine</p>
+    <h2 class="rv" data-d="1" style="max-width:14ch">Six lines we <em class="i">do not</em> cross.</h2>
+    <div class="tenets" style="margin-top:56px">
+      <div class="tenet rv"><span class="num">01</span><h3>Loyalty Before Opportunity</h3>
+        <p>We answer the call before we ask what it pays. A member's problem at 2am outranks a stranger's offer at noon. Loyalty is proven in inconvenience, never in comfort.</p></div>
+      <div class="tenet rv" data-d="1"><span class="num">02</span><h3>Sovereignty Over Salary</h3>
+        <p>Trading hours for currency is the oldest cage there is. We build systems that earn while we sleep so our time returns to us — and then we spend that time on people, not on permission.</p></div>
+      <div class="tenet rv" data-d="2"><span class="num">03</span><h3>Give First, Always</h3>
+        <p>You enter by contribution, not by consumption. Capital, craft, contacts, or care — every man pours in before he draws out. Takers are identified quickly and quietly.</p></div>
+      <div class="tenet rv" data-d="3"><span class="num">04</span><h3>Master Something</h3>
+        <p>Open-minded, creative, intelligent — and dangerous at one specific thing. Range is the culture. Depth is the ticket.</p></div>
+      <div class="tenet rv" data-d="4"><span class="num">05</span><h3>Discretion Is Luxury</h3>
+        <p>What is said at the table stays at the table. No screenshots, no name-drops, no performance. The quietest room in the city is the most valuable one.</p></div>
+      <div class="tenet rv" data-d="5"><span class="num">06</span><h3>No Door Back</h3>
+        <p>We forgive, we don't rewind. The people who bet against you don't get equity in the outcome. Grace, yes. Access, no.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= ENGINE ========= -->
+<section class="pad engine" id="engine">
+  <div class="media" data-asset="VLN-VID-02" data-type="video"></div>
+  <div class="wrap">
+    <p class="eyebrow rv" style="justify-content:center">Chapter IV — The Engine</p>
+    <h2 class="rv" data-d="1" style="max-width:18ch;margin:0 auto">We built a machine that <em class="i">prints time.</em></h2>
+    <p class="lead rv" data-d="2" style="margin:30px auto 0;text-align:center">
+      The Matrix is simple: work for money, buy things, repeat until you're out of days.
+      So a few of us went and built something that breaks the loop — quietly, mathematically, every single session.
+      We don't discuss its mechanics in public. We only discuss what it buys back: <em class="i">hours.</em>
+      Hours to grow, to travel, to teach, to be present. That's the whole point. The money was never the trophy.
+    </p>
+    <div class="tape rv" data-d="3"><div>
+      <span>SESSION OPEN</span><span>◆</span><span>SIGNAL</span><span>◆</span><span>CONVICTION</span><span>◆</span><span>SIZE</span><span>◆</span><span>EXIT</span><span>◆</span><span>COMPOUND</span><span>◆</span><span>REPEAT</span><span>◆</span>
+      <span>SESSION OPEN</span><span>◆</span><span>SIGNAL</span><span>◆</span><span>CONVICTION</span><span>◆</span><span>SIZE</span><span>◆</span><span>EXIT</span><span>◆</span><span>COMPOUND</span><span>◆</span><span>REPEAT</span><span>◆</span>
+    </div></div>
+    <div class="stats rv" data-d="4">
+      <div class="stat"><b data-count="24">0</b><span>Hours It Works</span></div>
+      <div class="stat"><b data-count="12">0</b><span>Cities Represented</span></div>
+      <div class="stat"><b data-count="6">0</b><span>Gatherings A Year</span></div>
+      <div class="stat"><b data-count="100">0</b><span>Percent By Referral</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= GATHERINGS ========= -->
+<section class="pad" id="gatherings">
+  <div class="wrap">
+    <p class="eyebrow rv">Chapter V — The Gatherings</p>
+    <h2 class="rv" data-d="1" style="max-width:15ch">Where the <em class="i">masks</em> come off.</h2>
+    <p class="lead rv" data-d="2" style="margin:30px 0 62px">
+      Six times a year we take the group off the screen and into a room. No badges, no pitch decks, no performance.
+      Long tables, low light, real conversation — and the kind of night people describe badly for years afterward.
+    </p>
+    <div class="gath">
+      <div class="card wide rv">
+        <div class="tag">Flagship · Annual</div>
+        <div class="media" data-asset="VLN-IMG-05"></div>
+        <div class="body">
+          <div class="meta"><span>The Masquerade</span><span>Autumn · Undisclosed Estate</span></div>
+          <h3>One night, no names.</h3>
+          <p>Black tie, gold masks, a house that shouldn't be that big, and a guest list that never gets published. The only rule: you must arrive with something to give — an introduction, a skill, a check, a truth.</p>
+        </div>
+      </div>
+      <div class="card rv" data-d="1">
+        <div class="tag">Quarterly</div>
+        <div class="media" data-asset="VLN-IMG-06"></div>
+        <div class="body">
+          <div class="meta"><span>The Midnight Table</span><span>Members + 1</span></div>
+          <h3>Dinner that runs late.</h3>
+          <p>Twelve seats. One question per course. Every man leaves with an action item that belongs to somebody else's dream.</p>
+        </div>
+      </div>
+      <div class="card rv" data-d="2">
+        <div class="tag">Bi-Annual</div>
+        <div class="media" data-asset="VLN-IMG-07"></div>
+        <div class="body">
+          <div class="meta"><span>Velocity</span><span>Track & Canyon</span></div>
+          <h3>Machines, and the men who fix them.</h3>
+          <p>Rented tarmac at sunrise, garage talk at dusk. What we actually tune is fear, patience, and throttle control — in that order.</p>
+        </div>
+      </div>
+      <div class="card rv" data-d="3">
+        <div class="tag">Annual</div>
+        <div class="media" data-asset="VLN-IMG-08"></div>
+        <div class="body">
+          <div class="meta"><span>Passport</span><span>Location Released 30 Days Out</span></div>
+          <h3>Somewhere with no cell service.</h3>
+          <p>A week off-grid with the people who'd notice if you disappeared. Villa, water, no agenda — the itinerary writes itself by day two.</p>
+        </div>
+      </div>
+      <div class="card rv" data-d="4">
+        <div class="tag">Monthly · Private</div>
+        <div class="media" data-asset="VLN-IMG-09"></div>
+        <div class="body">
+          <div class="meta"><span>The Vault</span><span>Members Only</span></div>
+          <h3>Books open, egos closed.</h3>
+          <p>The working session. Real numbers, real failures, real capital moving between members. This is the room the whole thing was built for.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= CIRCLE ========= -->
+<section class="pad" style="background:linear-gradient(180deg,#050505,#0a0908)">
+  <div class="wrap">
+    <p class="eyebrow rv">Chapter VI — The Circle</p>
+    <h2 class="rv" data-d="1" style="max-width:16ch">Who walks with <em class="i">us.</em></h2>
+    <p class="lead rv" data-d="2" style="margin:30px 0 52px">
+      We don't publish a roster. But if you saw the room, you'd recognize the type before you learned the names.
+    </p>
+    <div class="circle-grid rv" data-d="3">
+      <div class="who"><b>The Operator</b><span>Runs something real. Sleeps badly. Fixes it anyway.</span></div>
+      <div class="who"><b>The Quant</b><span>Believes in edges, not opinions. Builds the machines.</span></div>
+      <div class="who"><b>The Creative</b><span>Sees the picture ten years early and makes you feel it.</span></div>
+      <div class="who"><b>The Connector</b><span>Never asks for a finder's fee. Somehow always gets paid.</span></div>
+      <div class="who"><b>The Builder</b><span>Steel, code, or brand — makes things that outlive him.</span></div>
+      <div class="who"><b>The Quiet One</b><span>Says the least. Moves the most. Everyone calls him first.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= AUDIENCE ========= -->
+<section class="pad audience" id="audience">
+  <div class="wrap">
+    <div style="max-width:760px">
+      <p class="eyebrow rv">Chapter VII — Request an Audience</p>
+      <h2 class="rv" data-d="1">You don't apply.<br>You're <em class="i">received.</em></h2>
+      <p class="lead rv" data-d="2" style="margin-top:30px">
+        There is no membership fee, no tier, no upsell. There is a conversation — and it either happens or it doesn't.
+        Tell us what you build, who would vouch for you, and what you intend to pour back.
+        If it's a fit, someone reaches out. If it isn't, you'll never hear from us again, and we'll still wish you well.
+      </p>
+    </div>
+
+    <form class="form rv" data-d="3" id="audienceForm" novalidate>
+      <div class="field"><label for="f-name">Name</label>
+        <input id="f-name" name="name" required placeholder="How you're known"></div>
+      <div class="field"><label for="f-contact">Signal / Email</label>
+        <input id="f-contact" name="contact" required placeholder="Where we reach you, once"></div>
+      <div class="field"><label for="f-city">City</label>
+        <input id="f-city" name="city" placeholder="Where you operate"></div>
+      <div class="field"><label for="f-type">You are closest to</label>
+        <select id="f-type" name="archetype">
+          <option>The Operator</option><option>The Quant</option><option>The Creative</option>
+          <option>The Connector</option><option>The Builder</option><option>The Quiet One</option>
+        </select></div>
+      <div class="field full"><label for="f-build">What do you build?</label>
+        <textarea id="f-build" name="build" placeholder="The thing you'd still be doing if nobody paid you."></textarea></div>
+      <div class="field full"><label for="f-give">What will you pour back?</label>
+        <textarea id="f-give" name="give" placeholder="Capital, craft, contacts, or care — be specific."></textarea></div>
+      <div class="field"><label for="f-vouch">Who vouches for you?</label>
+        <input id="f-vouch" name="vouch" placeholder="A name inside the circle, if you have one"></div>
+      <div class="field"><label for="f-code">Sponsor Code</label>
+        <input id="f-code" name="code" placeholder="Optional — if you were given one"></div>
+      <label class="consent"><input type="checkbox" required>
+        <span>I understand this is a private circle. What is said at the table stays at the table.</span></label>
+      <div class="send">
+        <button class="btn" type="submit"><span>Send It</span></button>
+        <small>Reviewed by hand. Most requests are never answered — that's not personal.</small>
+      </div>
+      <div class="sent" id="sent">
+        <b>Received.</b>
+        <span>If the room agrees, you'll hear from one of us. Say nothing until then.</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer>
+  <div class="wrap">
+    <div class="fmark"><svg viewBox="0 0 520 420" style="width:100%;height:auto"><use href="#emblem"/></svg></div>
+    <p class="say">“We were never the villains.<br>We were just the ones who didn't stay down.”</p>
+    <div class="fnav">
+      <a href="#verdict">Verdict</a><a href="#mask">Mask</a><a href="#doctrine">Doctrine</a>
+      <a href="#engine">Engine</a><a href="#gatherings">Gatherings</a><a href="#audience">Audience</a>
+    </div>
+    <p class="fine">Team Villain · By Invitation · MMXXVI</p>
+  </div>
+</footer>
+
+<script>
+/* ================= CONFIG ================= */
+const BRAND = {
+  // Set to your logo file (or a base64 data URL) to replace the vector emblem everywhere.
+  logo: 'assets/team-villain.png',
+  // Where generated media lives. Files are named after each slot's data-asset id.
+  mediaDir: 'assets/',
+  imageExt: ['.jpg','.png','.webp'],
+  videoExt: ['.mp4','.webm']
+};
+
+/* ============ LOGO SWAP (graceful) ============ */
+(function(){
+  const probe = new Image();
+  probe.onload = () => {
+    document.querySelectorAll('svg use[href="#emblem"]').forEach(u=>{
+      const svg = u.closest('svg');
+      const img = document.createElement('img');
+      img.src = BRAND.logo; img.alt = 'Team Villain';
+      img.style.cssText = 'width:100%;height:100%;object-fit:contain';
+      svg.replaceWith(img);
+    });
+  };
+  probe.onerror = () => {}; // keep vector emblem
+  probe.src = BRAND.logo;
+})();
+
+/* ============ MEDIA SLOT LOADER ============ */
+document.querySelectorAll('.media[data-asset]').forEach(slot=>{
+  const id = slot.dataset.asset;
+  const isVid = slot.dataset.type === 'video';
+  const exts = isVid ? BRAND.videoExt : BRAND.imageExt;
+  const ph = document.createElement('div');
+  ph.className = 'slot-ph';
+  ph.innerHTML = `<div><span>${id}</span><b>${isVid?'motion slot':'still slot'}</b></div>`;
+  slot.appendChild(ph);
+
+  let i = 0;
+  const tryNext = () => {
+    if (i >= exts.length) return;
+    const src = BRAND.mediaDir + id + exts[i++];
+    if (isVid){
+      const v = document.createElement('video');
+      v.muted = true; v.loop = true; v.playsInline = true; v.autoplay = true; v.preload = 'metadata';
+      v.onloadeddata = () => { ph.remove(); v.play().catch(()=>{}); };
+      v.onerror = () => { v.remove(); tryNext(); };
+      v.src = src; slot.insertBefore(v, ph);
+    } else {
+      const im = new Image();
+      im.onload = () => { ph.remove(); slot.insertBefore(im, ph); };
+      im.onerror = tryNext;
+      im.src = src; im.alt = '';
+    }
+  };
+  tryNext();
+});
+
+/* ============ SEAL ============ */
+window.addEventListener('load', ()=>{
+  setTimeout(()=>{
+    document.getElementById('seal').classList.add('gone');
+    document.body.classList.remove('locked');
+  }, 2500);
+});
+
+/* ============ NAV ============ */
+const nav = document.getElementById('nav');
+const prog = document.getElementById('prog');
+const onScroll = () => {
+  const y = window.scrollY;
+  nav.classList.toggle('stuck', y > 60);
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  prog.style.width = (h > 0 ? (y/h)*100 : 0) + '%';
+  const halo = document.getElementById('halo');
+  halo.style.opacity = Math.max(0, 1 - y/900);
+};
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+const menu = document.getElementById('menu');
+document.getElementById('burger').addEventListener('click', ()=> menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+/* ============ REVEAL ============ */
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.14, rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ============ COUNTERS ============ */
+const cio = new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.count; let n = 0;
+    const step = Math.max(1, Math.round(target/48));
+    const t = setInterval(()=>{ n += step; if(n>=target){n=target;clearInterval(t);} el.textContent = n; }, 26);
+    cio.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+/* ============ CURSOR ============ */
+const cur = document.getElementById('cur');
+let cx=innerWidth/2, cy=innerHeight/2, tx=cx, ty=cy;
+addEventListener('mousemove', e=>{ tx=e.clientX; ty=e.clientY; }, {passive:true});
+(function loop(){ cx+=(tx-cx)*.16; cy+=(ty-cy)*.16;
+  cur.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`; requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button,.card,.tenet,.who').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+  el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+});
+
+/* ============ EMBERS ============ */
+(function(){
+  const c = document.getElementById('embers'), x = c.getContext('2d');
+  let w,h,parts;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const init = ()=>{ w=c.width=innerWidth; h=c.height=innerHeight;
+    parts = Array.from({length: Math.min(60, Math.round(w/26))}, ()=>({
+      x:Math.random()*w, y:Math.random()*h, r:Math.random()*1.5+.3,
+      s:Math.random()*.28+.06, d:Math.random()*Math.PI*2, o:Math.random()*.5+.12
+    }));
+  };
+  init(); addEventListener('resize', init);
+  if(reduce) return;
+  (function tick(){
+    x.clearRect(0,0,w,h);
+    parts.forEach(p=>{
+      p.y -= p.s; p.d += .012; p.x += Math.sin(p.d)*.32;
+      if(p.y < -12){ p.y = h+12; p.x = Math.random()*w; }
+      x.beginPath(); x.arc(p.x,p.y,p.r,0,7);
+      x.fillStyle = `rgba(200,169,106,${p.o})`; x.fill();
+    });
+    requestAnimationFrame(tick);
+  })();
+})();
+
+/* ============ HERO PARALLAX ============ */
+const heroMark = document.querySelector('.hero-mark');
+addEventListener('scroll', ()=>{
+  const y = window.scrollY;
+  if(y < innerHeight && heroMark){
+    heroMark.style.transform = `translateY(${y*.22}px) scale(${1 - y/6000})`;
+    heroMark.style.opacity = Math.max(0, 1 - y/(innerHeight*.72));
+  }
+}, {passive:true});
+
+/* ============ FORM ============ */
+document.getElementById('audienceForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const f = e.target;
+  if(!f.checkValidity()){ f.reportValidity(); return; }
+  // TODO: POST to your endpoint (Formspree / API route / worker).
+  // fetch('/api/audience', {method:'POST', body:new FormData(f)});
+  console.log('Audience request:', Object.fromEntries(new FormData(f)));
+  f.querySelectorAll('.field,.consent,.send').forEach(n=>n.style.display='none');
+  document.getElementById('sent').classList.add('show');
+});
+</script>
+</body>
+</html>

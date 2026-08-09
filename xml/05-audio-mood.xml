@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pack id="VLN-PACK-05" name="Score and Sound Design" inherits="00-brand-bible.xml">
+
+  <target_tools>Suno, Udio, Google Lyria / MusicFX, Stable Audio 2, ElevenLabs Sound Effects (for the design layers and stingers), Adobe Podcast or iZotope RX for cleanup. Final assembly in any DAW or in Premiere/Resolve.</target_tools>
+
+  <licensing_rule><![CDATA[Every reference in this pack is described by GENRE, INSTRUMENTATION, TEMPO and FEEL only. Do not name a real artist, band, composer, song, film score, album, or any copyrighted work in a generation prompt, and do not paste lyrics. Naming a real artist in a music-generation prompt produces derivative output with an unclear licence and can get a track taken down or a brand account struck. If a generator asks for a "style reference", answer with the genre and instrumentation sentences from this file. Keep the output receipts: save the prompt used and the generation date alongside each rendered file.]]></licensing_rule>
+
+  <sonic_doctrine>
+    <principle><![CDATA[Space over density. The mix should feel like a very large, very empty room. Long reverb tails, wide stereo, almost nothing in the middle. Silence is an instrument.]]></principle>
+    <principle><![CDATA[Low and slow. The energy lives under 200 Hz and above 8 kHz; the midrange is deliberately hollowed out. Sub-bass swells rather than kick drums.]]></principle>
+    <principle><![CDATA[Analogue imperfection. Tape hiss, vinyl noise floor, felt-piano key noise, bow scrape, breath on brass. Nothing quantised to a grid so tightly that it feels programmed.]]></principle>
+    <principle><![CDATA[Melancholy harmony. Minor and Aeolian modes, suspended fourths that resolve late or not at all, a single unresolved interval left ringing. Never triumphant, never uplifting, never a major-key payoff.]]></principle>
+    <principle><![CDATA[No vocals with intelligible lyrics anywhere in the brand. Wordless female contralto, distant male choral texture, or breath used as a pad — those are permitted and encouraged. Rapping, singing, or spoken hype is banned outright.]]></principle>
+    <principle><![CDATA[Restraint at the drop. Where a cue builds, the payoff is a subtraction — everything falls away to one instrument — not a wall of sound. Confidence is quiet.]]></principle>
+    <banned><![CDATA[Trap hi-hat rolls, 808 slides, EDM builds and drops, supersaw leads, motivational-podcast piano, corporate uplift ukulele, hand claps, air horns, sampled cash-register or coin sounds, DJ tags, anything that sounds like it belongs under a course advert.]]></banned>
+  </sonic_doctrine>
+
+  <asset id="VLN-AUD-01">
+    <title>Hero Ambience Bed</title>
+    <filename>VLN-AUD-01.mp3</filename>
+    <duration>2:00 minimum, composed to loop seamlessly</duration>
+    <bpm>Rubato / no fixed tempo. If the generator demands one, 58 BPM.</bpm>
+    <key>D minor, Aeolian, no modulation</key>
+    <placement>Optional ambience under the hero section and any long-form video. The site's hero video is muted by default; this bed is for edited films, the invitation video, and any environment where sound is expected. It must be unobtrusive enough to talk over.</placement>
+    <prompt><![CDATA[A slow, dark, cinematic ambient score bed for a luxury brand film. No drums, no percussion of any kind, no vocals with words. Instrumentation: a felt-dampened upright piano playing a sparse four-note descending figure in D minor, struck once every eight to twelve seconds, with the key and pedal noise audible; a low sustained cello drone on the tonic with slow bow pressure changes and occasional bow scrape; a bowed double bass sub-swell that rises and falls beneath it; a distant wordless contralto hum, heavily reverbed, barely present, entering only twice in the whole piece; a low analogue synth pad with slow filter movement sitting under everything. Long cathedral reverb with a six-second tail, wide stereo field, hollow midrange, warm tape saturation and a soft vinyl noise floor throughout. Extremely quiet dynamics, almost nothing above mezzo-piano. Unresolved harmony — a suspended fourth left hanging, never landing on a major chord. Patient, spacious, melancholy, expensive, the sound of a very large empty room at three in the morning. Composed to loop seamlessly with no discernible start or end.]]></prompt>
+    <negative_prompt><![CDATA[drums, percussion, beat, kick, snare, hi-hat, trap, 808, EDM, build, drop, supersaw, vocals, lyrics, singing, rapping, spoken word, uplifting, triumphant, major key resolution, motivational, corporate, ukulele, acoustic guitar strumming, bright, cheerful, fast, busy arrangement, orchestral swell, epic trailer, brass stabs, choir shouting, distortion, guitar solo, jazz swing, lo-fi hip hop beat, sound effects, cash register, coin sounds, applause]]></negative_prompt>
+    <notes><![CDATA[Generate at least six takes; the requirement is that it be forgettable in the best sense — you should be able to listen for two minutes and not be able to hum any of it. Master to roughly -20 LUFS integrated so it sits far under dialogue or on-screen copy. Loop point: cut on a piano-strike silence, crossfade 3 seconds. Deliver an MP3 at 192 kbps for web and keep a WAV master.]]></notes>
+  </asset>
+
+  <asset id="VLN-AUD-02">
+    <title>The Gathering — film trailer cue</title>
+    <filename>VLN-AUD-02.mp3</filename>
+    <duration>1:30 (structured 0:00 statement, 0:25 build, 0:55 subtraction, 1:10 close)</duration>
+    <bpm>72 BPM, half-time feel</bpm>
+    <key>C minor, moving to a sustained unresolved suspended fourth</key>
+    <placement>The main brand film, the invitation video, event recaps, and the long-form cut of the masquerade b-roll. This is the cue that carries the signature lines when they appear on screen.</placement>
+    <prompt><![CDATA[A dark, restrained cinematic trailer cue at 72 BPM in a half-time feel, for a secret-society brand film. Not an epic action trailer — a slow, ceremonial, dread-tinged build. Structure: it opens with a single low piano note and a long silence, then a plucked pizzicato cello ostinato of four notes enters in C minor, quiet and metronomic; a low male choral texture wordlessly joins underneath, more breath than pitch; a taiko-style low frame drum enters at half time around 25 seconds, felt in the chest rather than heard, one hit per bar and never a fill; strings build slowly in layers, always legato, never staccato runs; a single detuned brass note holds and swells against them. At around 55 seconds everything drops away at once, leaving only the felt piano and the noise floor for eight full seconds. The close is one sustained unresolved suspended fourth from the strings, a final low drum hit, and a long six-second reverb tail into silence. No vocals with words, no drum kit, no synth leads. Warm tape saturation, wide stereo, hollow midrange, cathedral reverb. Patient, ceremonial, ominous, expensive, melancholy underneath the grandeur.]]></prompt>
+    <negative_prompt><![CDATA[epic hollywood trailer, braams, brass stabs, hybrid orchestral action, drum kit, rock drums, trap, 808, hi-hat rolls, EDM build, riser, white noise sweep, drop, supersaw, dubstep, vocals, lyrics, singing, rapping, choir shouting words, uplifting, triumphant, heroic, major key resolution, victory fanfare, motivational, corporate, bright, fast, busy, cluttered mix, distortion, electric guitar, jazz, lo-fi hip hop, cash register, coin sounds, applause, whoosh transitions everywhere]]></negative_prompt>
+    <notes><![CDATA[The subtraction at 0:55 is the point of the whole cue — it is where the on-screen line lands ("They chose sides. We chose each other."). If a generated take fills that gap with sound, regenerate or cut it in the DAW. Most generators cannot hold a 90-second structure; the practical route is to generate three separate 30-second sections with the three descriptions above and assemble them. Master to -14 LUFS.]]></notes>
+  </asset>
+
+  <asset id="VLN-AUD-03">
+    <title>Tension / Engine cue</title>
+    <filename>VLN-AUD-03.mp3</filename>
+    <duration>0:45, loopable</duration>
+    <bpm>96 BPM</bpm>
+    <key>F minor, single-chord modal, no progression</key>
+    <placement>Under the ENGINE section film and the velocity / racetrack / cars b-roll. The system running. Machine pressure, not motorsport excitement.</placement>
+    <prompt><![CDATA[A tense, mechanical, minimal cinematic cue at 96 BPM in F minor, one chord throughout, no progression. Instrumentation: a dry muted pulse — a felt mallet on a low metal object, or a muted piano string struck with the damper down — repeating in steady eighth notes, close-mic'd with the mechanism audible; a low analogue synth bass that breathes with a slow filter, never melodic; a high, thin, sustained string harmonic held far above everything, slightly detuned so it beats against itself; a sparse metallic percussive tick, like a relay or a mechanical clock escapement, entering irregularly and panned wide; a low sine sub that swells every four bars. Underneath, a designed sound layer: distant server room air, a faint electrical hum at 50 Hz, and a very low, slow engine idle recorded from a great distance so it reads as pressure rather than as a car. No drum kit, no vocals, no melody, no chord changes, no resolution. Dry, tight, close reverb — a small hard room, not a cathedral. Cold, patient, mechanical, relentless, quietly menacing. Composed to loop seamlessly.]]></prompt>
+    <negative_prompt><![CDATA[drum kit, rock drums, trap, 808, hi-hat rolls, EDM, techno four on the floor, house, riser, drop, supersaw, dubstep, engine revving, exhaust pops, tyre screech, racing sound effects, motorsport commentary, vocals, lyrics, singing, rapping, melody, chord progression, resolution, uplifting, triumphant, heroic, motivational, corporate, bright, cheerful, orchestral epic, brass stabs, distortion, electric guitar, jazz, lo-fi hip hop, cash register, coin sounds, sci-fi laser, cyberpunk synthwave, retrowave arpeggio]]></negative_prompt>
+    <notes><![CDATA["Engine" here means the automated system, not a motor — keep the literal car sounds out; the distant idle is a texture, not a subject. Generate the musical layer and the designed sound layer separately (ElevenLabs Sound Effects for the room tone, hum and distant idle) and mix the design layer 12-15 dB under the music. Loop on the bar. Master to -16 LUFS.]]></notes>
+  </asset>
+
+  <asset id="VLN-AUD-04">
+    <title>Design layer library — stingers and textures</title>
+    <filename>VLN-AUD-04-[name].wav</filename>
+    <duration>0:01 to 0:08 per element</duration>
+    <bpm>n/a</bpm>
+    <key>n/a — tune sustained elements to D or F to sit with VLN-AUD-01 and VLN-AUD-03</key>
+    <placement>Transitions in social teasers, the emblem reveal, and section changes in long-form video. Generate each as an individual file.</placement>
+    <prompt><![CDATA[Generate each of the following as a separate isolated sound effect, dry, mono or wide stereo as noted, with no music and no other sound present. 1) SEAL: hot wax pressed onto heavy paper — a soft wet compression, a faint crackle, then silence, close-mic'd, 1.5 seconds. 2) MATCH: a single match strike and the flare of ignition, intimate, with the paper tear of the strike audible, 2 seconds. 3) DOOR: a very heavy wooden door opening slowly in a large stone room, with hinge groan and the room tone changing as it opens, 6 seconds, wide stereo. 4) BREATH: one slow human exhale, close, unvoiced, no words, 3 seconds. 5) GLASS: a single crystal tumbler set down on marble, with the ring decaying into a long room reverb, 4 seconds. 6) SUB DROP: a pure low sine sweeping from 60 Hz down to 25 Hz over 3 seconds with no click and no distortion, mono. 7) ROOM: two minutes of the ambience of a vast empty marble hall at night — air movement, distant traffic through stone, a faint electrical hum, nothing else, wide stereo. 8) CANDLE: the intimate crackle and breath of a single candle flame close-mic'd, 8 seconds, loopable.]]></prompt>
+    <negative_prompt><![CDATA[music, melody, drums, beat, vocals, speech, words, whoosh, cinematic riser, braam, sci-fi laser, cartoon sound effects, comedy sounds, applause, crowd noise, cash register, coin sounds, gunshot, explosion, glass smashing, alarm, notification chime, phone ringtone, digital beep, distortion, clipping, background music under the effect]]></negative_prompt>
+    <notes><![CDATA[These are the glue. The most-used will be SEAL (under the emblem reveal), SUB DROP (under every social teaser's final beat) and ROOM (under everything, at -30 dB, to make disparate clips feel like one place). Deliver as 48 kHz 24-bit WAV, trimmed tight with no leading silence, normalised to -3 dBFS peak. Never use a stinger and a music cue at full level simultaneously — duck the music 4 dB under any stinger.]]></notes>
+  </asset>
+
+</pack>

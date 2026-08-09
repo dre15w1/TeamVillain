@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pack id="VLN-PACK-01" name="Hero Motion" inherits="00-brand-bible.xml">
+
+  <target_tools>Google Flow / Veo 3 (primary), Runway Gen-3 Alpha Turbo (image-to-video), Kling 2.0, Sora. Generate the first frame in Midjourney or Flux if the video model needs a start image.</target_tools>
+
+  <pack_notes><![CDATA[VLN-VID-01 is the full-bleed background of the hero section (#top in index.html). The TEAM VILLAIN emblem and the headline sit CENTERED on top of it, plus a scroll cue at the bottom. Therefore:
+
+  1. The center 40% of the frame — horizontally and vertically — must stay near-black and empty. No subject, no bright element, no moving highlight crosses the middle. All visual interest lives in the outer thirds and the top and bottom edges.
+  2. Absolutely no on-screen text, no titles, no lower thirds. The site supplies all type.
+  3. The clip plays muted, autoplay, loop. It must loop seamlessly — first and last frame identical in composition, exposure and grain density.
+  4. Overall exposure must sit low enough that bone-white type at 90% opacity stays legible over it. If in doubt, make it darker.
+  5. Motion is ambient, not narrative. Nothing "happens." It breathes.
+
+  Two alternates are provided. Pick one, or produce all three and A/B them.]]></pack_notes>
+
+  <loop_technique>
+    <method name="Palindrome"><![CDATA[Generate 5-6 seconds, then in post reverse-and-append (ping-pong) to reach 10-12s. Only works when motion is non-directional — haze, flicker, shimmer. Do NOT use for anything with a consistent travel direction.]]></method>
+    <method name="Cross-dissolve tail"><![CDATA[Generate 12s, cross-dissolve the last 1.5s into the first 1.5s and trim to 9-10.5s. Requires the camera to be locked off or moving very slowly so the dissolve is invisible.]]></method>
+    <method name="Closed loop move"><![CDATA[Prompt an extremely slow move that returns — "the camera drifts a few centimetres right and settles back." Veo 3 handles this better than Runway.]]></method>
+    <ffmpeg_hint><![CDATA[Ping-pong: ffmpeg -i in.mp4 -filter_complex "[0]split[a][b];[b]reverse[r];[a][r]concat=n=2:v=1" -an -pix_fmt yuv420p -movflags +faststart VLN-VID-01.mp4]]></ffmpeg_hint>
+  </loop_technique>
+
+  <asset id="VLN-VID-01" role="primary">
+    <title>The Threshold — hero background loop</title>
+    <filename>VLN-VID-01.mp4</filename>
+    <aspect>16:9</aspect>
+    <duration>10s (8-12s acceptable)</duration>
+    <fps>24</fps>
+    <placement>Hero section (#top), full-bleed background behind the centered emblem, headline and scroll cue. Plays muted, autoplay, looped.</placement>
+    <prompt><![CDATA[A single continuous locked-off cinematic shot inside an enormous empty ballroom at three in the morning. The camera is deep in darkness at the back of the room. Far off to the left, a tall arched doorway stands open, spilling one shaft of warm aged-gold light across a black marble floor; far to the right, a second, dimmer sliver of the same light catches the edge of a marble column and the bottom of a chandelier's crystal. The entire centre of the frame is empty black air — no subject, no highlight, nothing crossing it. Thick volumetric haze drifts slowly through the two light shafts, curling and folding, catching the gold and going dark again. A heavy black velvet drape at the extreme left edge stirs almost imperceptibly. Fine dust and one or two slow embers float upward through the beam. Nothing else moves. No people. The camera drifts forward perhaps ten centimetres over the whole shot and settles, or holds completely still — no shake, no pan, no cut. Shot on 35mm anamorphic, tungsten-balanced motion picture negative pushed one stop; T2.0, shallow depth of field, oval bokeh; single warm practical light source, deep crushed blacks with retained shadow detail, volumetric haze, subtle halation on highlights; desaturated near-monochrome palette of void black #050505, bone white #EDE7DC and aged gold #C8A96A; heavy negative space, level horizon; fine organic film grain, print-film color science; cinematic, restrained, expensive, quietly melancholy. The first and last frames must match exactly so the clip loops seamlessly. No on-screen text of any kind, no audio narration, no titles.]]></prompt>
+    <negative_prompt><![CDATA[text, watermark, signature, caption, subtitles, letters, numbers, typography, logos, brand badges, people, faces, crowd, dancers, bright object in centre of frame, centred subject, centred light source, bright daylight, overexposure, HDR, oversharpened, cartoon, anime, illustration, 3D render, CGI, unreal engine, plastic, neon, cyberpunk, teal and orange grading, lens flare streaks, handheld shake, whip pan, drone swoop, orbit, speed ramp, hard cut, scene change, zoom punch, distorted architecture, warped columns, low resolution, jpeg artifacts, stock footage look, crypto, money, cash]]></negative_prompt>
+    <notes><![CDATA[Centre-safe zone is the hard requirement — if the generated take puts anything luminous in the middle third, discard it and regenerate rather than fixing in post. Grade down another 10-15% in post if bone-white type struggles. Export with no audio track. Target under 8 MB.]]></notes>
+  </asset>
+
+  <asset id="VLN-VID-01-ALT-A" role="alternate">
+    <title>Rain on Black Glass — hero alternate</title>
+    <filename>VLN-VID-01.mp4 (use only if chosen as primary)</filename>
+    <aspect>16:9</aspect>
+    <duration>10s</duration>
+    <fps>24</fps>
+    <placement>Drop-in replacement for the hero background.</placement>
+    <prompt><![CDATA[A single continuous locked-off cinematic shot from inside a dark penthouse, looking out through a floor-to-ceiling window streaked with slow rain. The room behind the camera is unlit. The city forty floors below is almost entirely extinguished — only a scatter of tiny warm aged-gold window lights burning in the far upper-left and lower-right of the frame, everything else black. The middle of the frame is nothing but wet black glass and empty night sky, unbroken and dark. Rain beads gather, hesitate and run down the glass in slow irregular trails, each bead briefly refracting a pinpoint of gold before it goes. The distant lights sit far out of focus as soft oval bokeh. A very slow breath of condensation blooms and fades at the extreme lower edge. No people, no reflection of a figure, no movement in the room. The camera is completely still, or pushes forward one or two centimetres over ten seconds. Shot on 35mm anamorphic, tungsten-balanced motion picture negative pushed one stop; T2.0, shallow depth of field, oval bokeh; deep crushed blacks with retained shadow detail, subtle halation on highlights; desaturated near-monochrome palette of void black #050505 and aged gold #C8A96A; heavy negative space; fine organic film grain, print-film color science; cinematic, restrained, quietly melancholy. First and last frames match for a seamless loop. No on-screen text, no titles, no audio narration.]]></prompt>
+    <negative_prompt><![CDATA[text, watermark, signature, caption, subtitles, letters, numbers, typography, logos, brand badges, people, faces, reflected figure, silhouette in centre, bright object in centre of frame, city skyline fully lit, dense bright windows, neon signs, billboards, cyberpunk, blue hour blue cast, teal and orange grading, bright daylight, HDR, oversharpened, cartoon, anime, illustration, 3D render, CGI, unreal engine, plastic, lens flare streaks, handheld shake, whip pan, drone swoop, speed ramp, hard cut, scene change, low resolution, jpeg artifacts, stock footage look, crypto, money, cash]]></negative_prompt>
+    <notes><![CDATA[Easiest of the three to loop — rain and bokeh are non-directional, so a cross-dissolve tail is invisible. Keep the city lights sparse; a dense skyline reads as generic stock and pulls focus to the centre.]]></notes>
+  </asset>
+
+  <asset id="VLN-VID-01-ALT-B" role="alternate">
+    <title>Gold in Smoke — hero alternate, abstract</title>
+    <filename>VLN-VID-01.mp4 (use only if chosen as primary)</filename>
+    <aspect>16:9</aspect>
+    <duration>12s</duration>
+    <fps>24</fps>
+    <placement>Drop-in replacement for the hero background. The safest option for type legibility.</placement>
+    <prompt><![CDATA[A single continuous macro cinematic shot of thick smoke moving in a completely black void. One narrow warm aged-gold light rakes in from the extreme left edge of the frame and a fainter one from the lower right, so the smoke only ignites into visible gold and bronze filigree at the outer margins of the picture; the centre of the frame remains dense, unlit, empty black. The smoke rolls and unfurls in slow motion, filaments separating and rejoining, occasionally catching a specular thread of gold before dissolving back into darkness. A few near-invisible embers drift upward through the left-hand beam. No object, no figure, no floor, no horizon — pure atmosphere. The camera does not move at all. Shot on 35mm anamorphic with a long lens, tungsten-balanced motion picture negative; T2.0, extremely shallow depth of field; deep crushed blacks with retained shadow detail, subtle halation on the gold highlights; desaturated near-monochrome palette of void black #050505 and aged gold #C8A96A with a trace of deep bronze #8A6F3C; heavy negative space; fine organic film grain, print-film color science; abstract, restrained, expensive, ominous. Slow motion, roughly 40% speed. First and last frames match for a seamless loop. No on-screen text, no titles, no audio narration.]]></prompt>
+    <negative_prompt><![CDATA[text, watermark, signature, caption, subtitles, letters, numbers, typography, logos, people, faces, figures forming in the smoke, recognisable shapes, skull, object, floor, horizon, bright centre, centred plume, coloured smoke, red smoke, blue smoke, purple, neon, cyberpunk, rainbow, bright daylight, HDR, oversharpened, cartoon, anime, illustration, 3D render, CGI, unreal engine, plastic, particle simulation look, lens flare streaks, handheld shake, whip pan, speed ramp, hard cut, scene change, low resolution, jpeg artifacts, crypto, money, cash]]></negative_prompt>
+    <notes><![CDATA[Highest type legibility of the three and the most forgiving to loop (ping-pong works perfectly). Risk: the model wants to centre the plume — state the centre-black requirement twice if it drifts. Also the model may hallucinate a face in the smoke; that is in the negatives, check every take.]]></notes>
+  </asset>
+
+  <asset id="VLN-VID-01-V" role="crop_variant">
+    <title>The Threshold — vertical hero crop</title>
+    <filename>VLN-VID-01-V.mp4</filename>
+    <aspect>9:16</aspect>
+    <duration>10s</duration>
+    <fps>24</fps>
+    <placement>Mobile hero background and any vertical placement. Same centre-safe rule: the emblem and headline sit dead centre, so the middle of the vertical frame stays black.</placement>
+    <prompt><![CDATA[Vertical framing. A single continuous locked-off cinematic shot inside an enormous empty ballroom at three in the morning, composed for a tall frame. A tall arched doorway stands open at the very top of the frame, spilling one shaft of warm aged-gold light straight down a black marble floor toward the bottom edge, where it pools and dies. The middle band of the frame — the entire central third, top to bottom — is empty black air with nothing crossing it. Thick volumetric haze drifts slowly through the falling light, curling and folding, catching the gold and going dark. A heavy black velvet drape at the extreme left edge stirs almost imperceptibly. One or two slow embers float upward through the beam near the top. No people. The camera holds completely still — no shake, no pan, no cut. Shot on 35mm anamorphic, tungsten-balanced motion picture negative pushed one stop; T2.0, shallow depth of field, oval bokeh; single warm practical light source, deep crushed blacks with retained shadow detail, volumetric haze, subtle halation on highlights; desaturated near-monochrome palette of void black #050505, bone white #EDE7DC and aged gold #C8A96A; heavy negative space, level horizon; fine organic film grain, print-film color science; cinematic, restrained, expensive, quietly melancholy. First and last frames match for a seamless loop. No on-screen text, no titles, no audio narration.]]></prompt>
+    <negative_prompt><![CDATA[text, watermark, signature, caption, subtitles, letters, numbers, typography, logos, brand badges, people, faces, crowd, bright object in centre of frame, centred subject, horizontal composition, letterboxed, black bars, bright daylight, overexposure, HDR, oversharpened, cartoon, anime, illustration, 3D render, CGI, unreal engine, plastic, neon, cyberpunk, teal and orange grading, lens flare streaks, handheld shake, whip pan, drone swoop, speed ramp, hard cut, scene change, distorted architecture, low resolution, jpeg artifacts, crypto, money, cash]]></negative_prompt>
+    <notes><![CDATA[Generate natively vertical rather than cropping the 16:9 — a centre-crop of the wide take loses the two side light sources and leaves an empty frame. If the video tool cannot do 9:16 natively, reframe the wide take so the left-hand doorway lands in the upper third.]]></notes>
+  </asset>
+
+</pack>
