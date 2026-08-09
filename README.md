@@ -19,21 +19,23 @@ in a browser or serve the folder statically and it works.
 
 ---
 
-## 1. Swap in the real logo
+## 1. The logo
 
-The site ships with a hand-built **vector emblem** that closely matches the Team Villain
-mark. It's used everywhere the logo appears (seal, nav crest, hero, footer).
+The real mark ships at `assets/team-villain.png` and is used on the seal, hero and footer.
 
-To use your real artwork instead, drop the file at:
+**How it composites.** The artwork is bone-on-black with a baked-in glow, so the site
+screen-blends it against the page — the black plate disappears with no visible box or seam,
+and the glow reads as real light. The blend sits on the *wrapper* element, not the `<img>`:
+a wrapper carrying a `filter` creates its own stacking context, and a child blending inside
+it has nothing underneath to blend with (this is why the first pass showed a black rectangle).
 
-```
-assets/team-villain.png
-```
+In the nav the wordmark is illegible at 40px, so the letterspaced `TEAM VILLAIN` lockup
+carries it there instead.
 
-A transparent PNG works best (the site applies its own gold glow behind it). The swap is
-automatic — if the file is missing, the vector emblem is used, so the site never breaks.
+If `assets/team-villain.png` is ever missing, the site falls back to a hand-built vector
+emblem so it never breaks. `assets/team-villain-social.png` is the 640×640 OG/share card.
 
-To point somewhere else, edit one line near the bottom of `index.html`:
+To point at different artwork, edit one line near the bottom of `index.html`:
 
 ```js
 const BRAND = {

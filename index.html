@@ -7,6 +7,9 @@
 <meta name="description" content="A private society of builders, givers and outliers. They chose sides. We chose each other.">
 <meta property="og:title" content="TEAM VILLAIN">
 <meta property="og:description" content="They chose sides. We chose each other.">
+<meta property="og:image" content="assets/team-villain-social.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#050505">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050505'/%3E%3Ccircle cx='32' cy='30' r='21' fill='none' stroke='%23EFE6D5' stroke-width='3' stroke-dasharray='96 14'/%3E%3Cpath d='M21 22 L32 56 L43 22 L36 22 L32 40 L28 22 Z' fill='%23EFE6D5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,6 +85,9 @@ a{color:inherit;text-decoration:none}
 #seal.gone{opacity:0;visibility:hidden}
 #seal .inner{text-align:center;padding:0 24px}
 #seal .mark{width:min(300px,62vw);margin:0 auto 30px;opacity:0;animation:sealIn 1.5s var(--ease) .25s forwards}
+.has-logo #seal .mark{width:min(440px,84vw);margin-bottom:2px}
+.has-logo footer .fmark{width:250px;margin-bottom:6px}
+.has-logo .hero-mark{width:min(620px,92vw)}
 #seal .lede{font-family:var(--ff-emblem);font-size:clamp(9px,1vw,11px);letter-spacing:.62em;
   text-transform:uppercase;color:var(--gold);opacity:0;animation:sealIn 1.4s var(--ease) 1s forwards}
 #seal .bar{width:min(320px,60vw);height:1px;background:rgba(200,169,106,.15);margin:26px auto 0;overflow:hidden}
@@ -98,7 +104,17 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:8000;display:flex;align-i
 header.nav.stuck{background:rgba(5,5,5,.72);backdrop-filter:blur(16px) saturate(120%);
   border-bottom-color:var(--line);padding:13px var(--gut)}
 .nav .crest{display:flex;align-items:center;gap:12px}
-.nav .crest svg,.nav .crest img{width:34px;height:34px;object-fit:contain}
+.nav .crest svg{width:34px;height:34px;object-fit:contain}
+/* Real-logo treatment. The art is bone-on-black with a baked glow, so the WRAPPER
+   screen-blends against the page — that erases the black plate with no seam.
+   The blend must sit on the wrapper, not the <img>: a wrapper with `filter` makes
+   its own stacking context, and a child blending inside it has nothing to blend with. */
+.logo-img{display:block;width:100%;height:auto}
+.has-logo .hero-mark,
+.has-logo #seal .mark,
+.has-logo footer .fmark{mix-blend-mode:screen;filter:none}
+/* the wordmark is unreadable at nav scale — the letterspaced lockup carries it instead */
+.has-logo .nav .crest .logo-img{display:none}
 .nav .crest b{font-family:var(--ff-emblem);font-weight:600;font-size:11px;letter-spacing:.42em;
   text-transform:uppercase;color:var(--bone)}
 .nav nav{display:flex;gap:34px;align-items:center}
@@ -685,11 +701,12 @@ const BRAND = {
 (function(){
   const probe = new Image();
   probe.onload = () => {
+    document.documentElement.classList.add('has-logo');
+    document.body.classList.add('has-logo');
     document.querySelectorAll('svg use[href="#emblem"]').forEach(u=>{
       const svg = u.closest('svg');
       const img = document.createElement('img');
-      img.src = BRAND.logo; img.alt = 'Team Villain';
-      img.style.cssText = 'width:100%;height:100%;object-fit:contain';
+      img.src = BRAND.logo; img.alt = 'Team Villain'; img.className = 'logo-img';
       svg.replaceWith(img);
     });
   };
