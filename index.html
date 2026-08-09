@@ -344,6 +344,14 @@ footer .fnav a{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;colo
 footer .fnav a:hover{color:var(--gold)}
 footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#3d3a35}
 
+/* ========== FILM ========== */
+.film{background:linear-gradient(180deg,#050505,#0b0a09 40%,#050505)}
+.film-frame{max-width:400px;margin:0 auto;border:1px solid var(--line);background:#000;
+  box-shadow:0 50px 140px rgba(0,0,0,.65),0 0 0 1px rgba(200,169,106,.07);overflow:hidden}
+.film-frame video{width:100%;display:block;aspect-ratio:9/16;background:#000}
+.film-frame video::-webkit-media-controls-panel{background:linear-gradient(0deg,rgba(0,0,0,.6),transparent)}
+.film-note{margin:22px auto 0;font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--ash)}
+
 /* ========== SOUND ========== */
 /* Browsers refuse to autoplay audio without a gesture, and audio that starts on
    its own reads as an ambush anyway — so sound is opt-in, and it says so. */
@@ -479,6 +487,7 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
     <div class="acts">
       <a class="btn" href="#audience"><span>Request an Audience</span></a>
       <a class="btn ghost" href="#verdict"><span>Read the Verdict</span></a>
+      <a class="btn ghost" href="#film"><span>Watch the Film</span></a>
     </div>
   </div>
   <div class="scroll-cue">Descend<i></i></div>
@@ -784,6 +793,25 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
       <div class="who"><b>The Builder</b><span>Steel, code, or brand — makes things that outlive him.</span></div>
       <div class="who"><b>The Quiet One</b><span>Says the least. Moves the most. Everyone calls him first.</span></div>
     </div>
+  </div>
+</section>
+
+<!-- ========= FILM ========= -->
+<section class="pad film" id="film">
+  <div class="wrap" style="text-align:center">
+    <p class="eyebrow rv" style="justify-content:center">The Brand Film</p>
+    <h2 class="rv" data-d="1" style="max-width:16ch;margin:0 auto">The <em class="i">Handoff.</em></h2>
+    <p class="lead rv" data-d="2" style="margin:30px auto 46px;text-align:center">
+      One night, one mask, one room. This is the whole story in sixty seconds — watch with sound.
+    </p>
+    <div class="film-frame rv" data-d="3">
+      <video controls playsinline preload="metadata">
+        <source src="assets/the-handoff.mp4" type="video/mp4">
+        Your browser doesn't support embedded video —
+        <a href="assets/the-handoff.mp4" class="gold">download it here</a>.
+      </video>
+    </div>
+    <p class="film-note rv" data-d="4">They Chose Sides. We Chose Each Other.</p>
   </div>
 </section>
 
