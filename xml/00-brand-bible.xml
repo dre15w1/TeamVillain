@@ -63,14 +63,17 @@
 
   <casting>
     <rule>TEAM VILLAIN is a Black collective. Every person who appears in any TEAM VILLAIN
-    asset is Black — predominantly Black men, with Black women present at the gatherings.
-    This is not a diversity note appended to a scene; it is the composition of the room and
-    must be stated in the prompt itself, because unprompted generators default to white
-    subjects and will quietly produce the wrong group.</rule>
+    asset is Black, and the collective is mixed-gender throughout — Black men and Black
+    women, in every scene that shows more than one person, not women reserved for "the
+    gatherings" and men for everything else. This is not a diversity note appended to a
+    scene; it is the composition of the room and must be stated in the prompt itself,
+    because unprompted generators default to white subjects, and left unstated will also
+    default to all-male groups, and will quietly produce the wrong room.</rule>
     <phrasing>Write it into the subject sentence, not the tail: "a Black man in black tie",
-    "a room of Black men and women in black tie and floor-length silk". Say it once per
-    person or group described. Range of deep to medium-deep brown skin tones — a real
-    group, not one repeated face.</phrasing>
+    "a Black woman in floor-length silk", "a room of Black men and women in black tie and
+    floor-length silk, evenly mixed". Any prompt with more than one person must say "men
+    and women" explicitly — never just "a group of Black men" with gender left to default.
+    Range of deep to medium-deep brown skin tones — a real group, not one repeated face.</phrasing>
     <lighting_correction priority="high">The house lighting recipe — one warm practical,
     deep crushed blacks, heavy falloff — will swallow deep skin tones and reduce a subject
     to an unreadable silhouette if it is applied unadjusted. Every prompt containing a Black
@@ -81,14 +84,21 @@
     midtones instead of desaturating the subject along with the room. The room stays crushed.
     The person does not.</lighting_correction>
     <identity>Faces remain non-identifiable by design — back to camera, cropped above the
-    lip, masked, or in shadow. Never attempt to render a specific real person's face,
-    including the founder's. If a founder likeness is wanted on the site, use an actual
-    photograph of him, not a generated approximation.</identity>
+    lip, masked, or in shadow. Never attempt to render a specific real person's face from a
+    text description alone, for anyone.
+    The one standing exception is the founder, and only the founder, and only because he
+    has explicitly authorized it and supplied his own reference photographs for it. His
+    likeness in any asset — still or motion — must be generated from those reference photos
+    (image-to-video / character-reference conditioning), never invented from a text
+    description of his appearance. If new founder material is needed and no suitable
+    reference photo exists for the pose, ask him for one rather than approximating. Nobody
+    else's real likeness is ever generated, reference photos or not.</identity>
     <grooming>Close-cut fades, clean lineups, close-trimmed or full beards, bald heads.
     Well-groomed and expensive without reading as styled. No wigs, no costume afros.</grooming>
     <banned>Racially ambiguous or lightened-up renderings when a Black subject was specified;
-    a single Black figure placed in an otherwise white room; skin smoothed to plastic;
-    ashy or grey-cast skin from over-desaturation.</banned>
+    a single Black figure placed in an otherwise white room; all-male crowds when a mixed
+    room was specified; skin smoothed to plastic; ashy or grey-cast skin from
+    over-desaturation.</banned>
   </casting>
   <wardrobe>
     <core><![CDATA[Black tie and tailoring. Midnight-black tuxedos, black silk grosgrain lapels, bone-white dress shirts, black bow ties worn slightly loosened late in the night. Full-length black overcoats. Black turtlenecks under tailored jackets. Bare feet or black patent oxfords.]]></core>
