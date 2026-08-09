@@ -740,7 +740,9 @@ document.querySelectorAll('.media[data-asset]').forEach(slot=>{
       v.src = src; slot.insertBefore(v, ph);
     } else {
       const im = new Image();
-      im.onload = () => { ph.remove(); slot.insertBefore(im, ph); };
+      // Insert BEFORE removing the placeholder — ph is the reference node, so
+      // removing it first makes insertBefore throw and the image never lands.
+      im.onload = () => { slot.insertBefore(im, ph); ph.remove(); };
       im.onerror = tryNext;
       im.src = src; im.alt = '';
     }
