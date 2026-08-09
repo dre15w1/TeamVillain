@@ -10,21 +10,24 @@ its `<casting>` block in particular is the thing people get wrong.
 
 ## Status at a glance
 
-**18 of 44 assets exist.** The website is complete — every slot on the page is filled. What
-remains unbuilt is everything the *site doesn't consume*: social teasers, extra b-roll,
-emblem treatments, and the extra audio cues.
+**24 of 44 assets exist.** The website is complete — every slot on the page is filled. The six
+social teasers are also built now, sitting outside the site in `social/`. What remains unbuilt
+is everything else the *site doesn't consume*: extra hero alternates, b-roll, emblem
+treatments, and the extra audio cues.
 
 | | Built | Prompt only |
 |---|---|---|
 | Website assets | **18** | 0 |
-| Social / film / merch | 0 | **26** |
+| Social teasers | **6** | 0 |
+| Extra b-roll / film / merch | 0 | **20** |
 
-If you never generate another one, the site is finished. The remaining 26 are raw material
-for Reels, brand films, invitations and merch — useful when you start posting, not before.
+If you never generate another one, the site is finished and you have six teasers ready to
+post. The remaining 20 are raw material for brand films, invitations and merch — useful when
+you get there, not before.
 
 ---
 
-## BUILT — live on the site
+## BUILT
 
 | Asset ID | Type | Aspect | Where it appears |
 |---|---|---|---|
@@ -54,6 +57,19 @@ founder imagery changes, it changes by taking another photograph.
 `VLN-AUD-01` was **synthesised from scratch**, not prompted — see `05-audio-mood.xml`
 `<delivered>` for the full arrangement. It is owned outright with nothing to license.
 
+| Asset ID | Type | Aspect | Where it appears |
+|---|---|---|---|
+| `VLN-SOC-01` | video | 9:16 | Social — "They Chose Sides" (ballroom doorway) |
+| `VLN-SOC-02` | video | 9:16 | Social — "The Receipt" (cracked gold mask macro) |
+| `VLN-SOC-03` | video | 9:16 | Social — "Hours For Money" (dormant machinery abstraction) |
+| `VLN-SOC-04` | video | 9:16 | Social — "You Can't Come Back" (penthouse glass) |
+| `VLN-SOC-05` | video | 9:16 | Social — "The Room You Weren't In" (dining table) |
+| `VLN-SOC-06` | video | 9:16 | Social — "Six In The Morning" (empty racetrack) |
+
+The six social teasers live in **`social/`**, not `assets/` — they were built for Reels and
+TikTok and **never touch the website**, so they sit outside the media-slot system entirely.
+Post them with the hook lines and captions already written into `06-social-teasers.xml`.
+
 ---
 
 ## NOT BUILT — prompts ready, nothing generated
@@ -81,11 +97,6 @@ fifteen video loops would make it unusable on a phone.
 **Additional audio** — `05-audio-mood.xml`
 `VLN-AUD-02` trailer cue · `VLN-AUD-03` tension/engine cue · `VLN-AUD-04` stinger library.
 For films and cutdowns. The site only needs `VLN-AUD-01`, which exists.
-
-**Social teasers** — `06-social-teasers.xml`
-`VLN-SOC-01` … `VLN-SOC-06`, all 9:16, 7–10s, each with its hook line and caption written.
-**These never touch the website** — they're for Reels and TikTok when you start posting.
-Type is always set in post, never generated.
 
 ---
 
