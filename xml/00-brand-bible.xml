@@ -61,6 +61,35 @@
     <rule><![CDATA[No group looking at camera. No eye contact with lens. Ever.]]></rule>
   </composition_rules>
 
+  <casting>
+    <rule>TEAM VILLAIN is a Black collective. Every person who appears in any TEAM VILLAIN
+    asset is Black — predominantly Black men, with Black women present at the gatherings.
+    This is not a diversity note appended to a scene; it is the composition of the room and
+    must be stated in the prompt itself, because unprompted generators default to white
+    subjects and will quietly produce the wrong group.</rule>
+    <phrasing>Write it into the subject sentence, not the tail: "a Black man in black tie",
+    "a room of Black men and women in black tie and floor-length silk". Say it once per
+    person or group described. Range of deep to medium-deep brown skin tones — a real
+    group, not one repeated face.</phrasing>
+    <lighting_correction priority="high">The house lighting recipe — one warm practical,
+    deep crushed blacks, heavy falloff — will swallow deep skin tones and reduce a subject
+    to an unreadable silhouette if it is applied unadjusted. Every prompt containing a Black
+    subject must also carry: key the skin about one stop hotter than the surrounding scene;
+    add soft bounce or fill on the shadow side so the shadow side still holds detail rather
+    than going to pure black; let specular highlights on skin ROLL rather than clip, so the
+    sheen reads as light on skin and not as a blown white patch; retain warmth in the
+    midtones instead of desaturating the subject along with the room. The room stays crushed.
+    The person does not.</lighting_correction>
+    <identity>Faces remain non-identifiable by design — back to camera, cropped above the
+    lip, masked, or in shadow. Never attempt to render a specific real person's face,
+    including the founder's. If a founder likeness is wanted on the site, use an actual
+    photograph of him, not a generated approximation.</identity>
+    <grooming>Close-cut fades, clean lineups, close-trimmed or full beards, bald heads.
+    Well-groomed and expensive without reading as styled. No wigs, no costume afros.</grooming>
+    <banned>Racially ambiguous or lightened-up renderings when a Black subject was specified;
+    a single Black figure placed in an otherwise white room; skin smoothed to plastic;
+    ashy or grey-cast skin from over-desaturation.</banned>
+  </casting>
   <wardrobe>
     <core><![CDATA[Black tie and tailoring. Midnight-black tuxedos, black silk grosgrain lapels, bone-white dress shirts, black bow ties worn slightly loosened late in the night. Full-length black overcoats. Black turtlenecks under tailored jackets. Bare feet or black patent oxfords.]]></core>
     <women><![CDATA[Floor-length black and bone silk, long gloves, minimal jewelry in aged gold only. Never overtly styled as a fashion editorial — these are members, not models.]]></women>
