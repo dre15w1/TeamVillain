@@ -117,9 +117,10 @@ header.nav.stuck{background:rgba(5,5,5,.72);backdrop-filter:blur(16px) saturate(
 .has-logo .nav .crest .logo-img{display:none}
 .nav .crest b{font-family:var(--ff-emblem);font-weight:600;font-size:11px;letter-spacing:.42em;
   text-transform:uppercase;color:var(--bone)}
-.nav nav{display:flex;gap:34px;align-items:center}
-.nav nav a{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--bone-dim);
-  position:relative;padding:6px 0;transition:color .35s}
+.nav .crest b{white-space:nowrap}
+.nav nav{display:flex;gap:clamp(16px,1.6vw,26px);align-items:center}
+.nav nav a{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-dim);
+  position:relative;padding:6px 0;white-space:nowrap;transition:color .35s}
 .nav nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .45s var(--ease)}
 .nav nav a:hover{color:var(--gold-hi)}
 .nav nav a:hover::after{width:100%}
@@ -129,7 +130,8 @@ header.nav.stuck{background:rgba(5,5,5,.72);backdrop-filter:blur(16px) saturate(
 .burger{display:none;width:34px;height:34px;border:1px solid var(--line);background:none;cursor:pointer;
   align-items:center;justify-content:center;flex-direction:column;gap:5px}
 .burger i{display:block;width:15px;height:1px;background:var(--gold)}
-@media(max-width:960px){
+/* nine links wrap onto a second row and shove the lockup before 960px — collapse earlier */
+@media(max-width:1240px){
   .nav nav{position:fixed;inset:0;background:rgba(5,5,5,.97);backdrop-filter:blur(18px);flex-direction:column;
     justify-content:center;gap:26px;transform:translateY(-101%);transition:transform .7s var(--ease)}
   .nav nav.open{transform:none}
@@ -455,6 +457,7 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
     <a href="#engine">Time Machine</a>
     <a href="#gatherings">Gatherings</a>
     <a href="#founder">The Founder</a>
+    <a href="#membership">Standing</a>
     <a href="#audience">Audience</a>
   </nav>
   <a class="cta" href="#audience">Request an Audience</a>
@@ -586,13 +589,13 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
     <p class="lead rv" data-d="2" style="margin:30px auto 0;text-align:center">
       The Matrix is simple: work for money, buy things, repeat until you're out of days.
       So one man went and built something that breaks the loop — quietly, mathematically, every single session.
-      We don't discuss its mechanics in public. We only discuss what it buys back: <em class="i">hours.</em>
+      We don't discuss its mechanics in public. We only discuss what it hands back: <em class="i">hours.</em>
       Hours to grow, to travel, to teach, to be present. That's the whole point. The money was never the trophy.
     </p>
     <p class="lead rv" data-d="3" style="margin:22px auto 0;text-align:center">
       <em class="i">The Time Machine comes with the seat.</em> From the day the room agrees on a man,
-      it's simply what he has access to — no pitch, no demo, no one selling it to him.
-      What it hands back is hours. What he does with them is the only thing anyone here asks about.
+      it is simply his to use — the same as it is for every other man at the table.
+      What he does with the hours is the only thing anyone here ever asks about.
     </p>
     <div class="tape rv" data-d="3"><div>
       <span>SESSION OPEN</span><span>◆</span><span>SIGNAL</span><span>◆</span><span>CONVICTION</span><span>◆</span><span>SIZE</span><span>◆</span><span>EXIT</span><span>◆</span><span>COMPOUND</span><span>◆</span><span>REPEAT</span><span>◆</span>
@@ -718,8 +721,8 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
       </p>
       <p class="lead rv" data-d="3" style="margin-top:22px">
         He built the machine first. Then he did the thing almost nobody does with an edge:
-        <em class="i">he handed it to his people.</em> Not sold. Handed. That decision is the entire reason
-        this exists — and it's still the standard every member is measured against.
+        <em class="i">he opened it to his people.</em> Not hoarded. Not guarded. Opened. That decision is the
+        entire reason this exists — and it's still the standard every man here is measured against.
       </p>
       <blockquote class="quote rv" data-d="4">
         “I didn't build it to get out of the room.<br>I built it so I could bring the room with me.”
@@ -732,24 +735,24 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
 <!-- ========= MEMBERSHIP ========= -->
 <section class="pad membership" id="membership">
   <div class="wrap">
-    <p class="eyebrow rv" style="justify-content:center">The Terms</p>
+    <p class="eyebrow rv" style="justify-content:center">The Standing</p>
     <h2 class="rv" data-d="1" style="max-width:16ch;margin:0 auto;text-align:center">
       When you join, you're <em class="i">family.</em>
     </h2>
     <p class="lead rv" data-d="2" style="margin:30px auto 0;text-align:center">
-      A seat here isn't something you buy your way into and it doesn't renew on a calendar.
-      Whatever it takes to sit down, it isn't what keeps you at the table.
+      The table has a size. It fills by name — one man putting his own word behind another,
+      out loud, in front of everyone. A chair only opens when a man stops being worth the one he has.
     </p>
     <div class="terms rv" data-d="3">
       <div class="term">
-        <span class="k">What's included</span>
+        <span class="k">What comes with the seat</span>
         <b>The Time Machine</b>
-        <p>Access to the engine that buys the hours back. It comes with the seat — not as an upsell, not as a thing you're pitched once you're inside.</p>
+        <p>The engine that hands the hours back. Every man at the table has it, from his first night to his last — the same access, the same day one.</p>
       </div>
       <div class="term">
-        <span class="k">What holds it</span>
-        <b>Tight loyalty</b>
-        <p>Your tenure is measured in loyalty. Show up, pour in, keep the table's business at the table. Nothing else renews your seat.</p>
+        <span class="k">What keeps it</span>
+        <b>Your word</b>
+        <p>Standing here is measured in loyalty. Show up, pour in, keep the table's business at the table. A man is only ever as welcome as his last word was true.</p>
       </div>
       <div class="term">
         <span class="k">What you become</span>
@@ -757,9 +760,10 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
         <p>Not a network, not a mastermind, not a group chat. When you're in, your problem is our problem and your win is on all of us.</p>
       </div>
     </div>
-    <p class="lead rv" data-d="4" style="margin:44px auto 0;text-align:center;max-width:52ch">
-      And the reverse is just as plain: loyalty is the only thing that can end it.
-      Nobody is removed for a bad quarter. People are removed for a bad character.
+    <p class="lead rv" data-d="4" style="margin:44px auto 0;text-align:center;max-width:54ch">
+      And the reverse is just as plain. No man loses his chair over a bad year —
+      we've all had one, and that's what the room is for. Men lose chairs over their word.
+      It is the one thing here that can't be replaced, recovered, or explained away.
     </p>
   </div>
 </section>
@@ -776,7 +780,7 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
       <div class="who"><b>The Operator</b><span>Runs something real. Sleeps badly. Fixes it anyway.</span></div>
       <div class="who"><b>The Quant</b><span>Believes in edges, not opinions. Builds the machines.</span></div>
       <div class="who"><b>The Creative</b><span>Sees the picture ten years early and makes you feel it.</span></div>
-      <div class="who"><b>The Connector</b><span>Never asks for a finder's fee. Somehow always gets paid.</span></div>
+      <div class="who"><b>The Connector</b><span>Never asks for anything back. Somehow always ends up owed.</span></div>
       <div class="who"><b>The Builder</b><span>Steel, code, or brand — makes things that outlive him.</span></div>
       <div class="who"><b>The Quiet One</b><span>Says the least. Moves the most. Everyone calls him first.</span></div>
     </div>
@@ -790,7 +794,7 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
       <p class="eyebrow rv">Chapter VIII — Request an Audience</p>
       <h2 class="rv" data-d="1">You don't apply.<br>You're <em class="i">received.</em></h2>
       <p class="lead rv" data-d="2" style="margin-top:30px">
-        You don't buy your way in. It starts with a conversation — and it either happens or it doesn't.
+        There is no list to climb and no queue to wait in. It starts with a conversation — and it either happens or it doesn't.
         Tell us what you build, who would vouch for you, and what you intend to pour back.
         If it's a fit, someone reaches out. If it isn't, you'll never hear from us again, and we'll still wish you well.
       </p>
@@ -809,7 +813,7 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
           <option>The Connector</option><option>The Builder</option><option>The Quiet One</option>
         </select></div>
       <div class="field full"><label for="f-build">What do you build?</label>
-        <textarea id="f-build" name="build" placeholder="The thing you'd still be doing if nobody paid you."></textarea></div>
+        <textarea id="f-build" name="build" placeholder="The thing you'd still be doing if nobody was watching."></textarea></div>
       <div class="field full"><label for="f-give">What will you pour back?</label>
         <textarea id="f-give" name="give" placeholder="Capital, craft, contacts, or care — be specific."></textarea></div>
       <div class="field"><label for="f-vouch">Who vouches for you?</label>
@@ -838,7 +842,7 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
     <div class="fnav">
       <a href="#verdict">Verdict</a><a href="#mask">Mask</a><a href="#doctrine">Doctrine</a>
       <a href="#engine">Time Machine</a><a href="#gatherings">Gatherings</a>
-      <a href="#founder">Founder</a><a href="#membership">Terms</a><a href="#audience">Audience</a>
+      <a href="#founder">Founder</a><a href="#membership">Standing</a><a href="#audience">Audience</a>
     </div>
     <p class="fine">Team Villain · By Invitation · MMXXVI</p>
   </div>
