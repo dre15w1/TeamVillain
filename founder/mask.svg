@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0.15" y2="1">
+      <stop offset="0%"   stop-color="#FBF0CD"/>
+      <stop offset="22%"  stop-color="#E3C583"/>
+      <stop offset="52%"  stop-color="#B4924A"/>
+      <stop offset="80%"  stop-color="#7C6130"/>
+      <stop offset="100%" stop-color="#4A3A1B"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0.35">
+      <stop offset="0%"   stop-color="#FFFAE8" stop-opacity=".70"/>
+      <stop offset="30%"  stop-color="#FFFAE8" stop-opacity="0"/>
+      <stop offset="62%"  stop-color="#FFF3CD" stop-opacity=".30"/>
+      <stop offset="100%" stop-color="#FFF3CD" stop-opacity="0"/>
+    </linearGradient>
+    <path id="body" fill-rule="evenodd" d="
+      M 40,224
+      C 86,116 258,36 420,26
+      C 508,20 560,54 600,92
+      C 640,54 692,20 780,26
+      C 942,36 1114,116 1160,224
+      C 1120,326 984,392 822,396
+      C 722,398 650,352 600,298
+      C 550,352 478,398 378,396
+      C 216,392 80,326 40,224 Z
+      M 252,206
+      C 302,142 420,134 482,192
+      C 432,262 300,272 252,206 Z
+      M 948,206
+      C 898,142 780,134 718,192
+      C 768,262 900,272 948,206 Z"/>
+    <clipPath id="clip"><use href="#body"/></clipPath>
+  </defs>
+
+  <use href="#body" fill="url(#g)"/>
+  <g clip-path="url(#clip)">
+    <use href="#body" fill="url(#sheen)"/>
+    <!-- brow ridges -->
+    <path d="M232 190 C296 118, 442 110, 508 178" fill="none" stroke="#FFF6D6" stroke-opacity=".50" stroke-width="9"/>
+    <path d="M968 190 C904 118, 758 110, 692 178" fill="none" stroke="#FFF6D6" stroke-opacity=".50" stroke-width="9"/>
+    <!-- temple facets -->
+    <path d="M60 232 C150 300, 300 356, 420 366" fill="none" stroke="#3A2C13" stroke-opacity=".45" stroke-width="10"/>
+    <path d="M1140 232 C1050 300, 900 356, 780 366" fill="none" stroke="#3A2C13" stroke-opacity=".45" stroke-width="10"/>
+    <!-- nose bridge -->
+    <path d="M600 96 C592 150, 592 210, 600 268" fill="none" stroke="#3E3016" stroke-opacity=".55" stroke-width="8"/>
+    <path d="M612 100 C620 152, 620 208, 612 262" fill="none" stroke="#FFF0C4" stroke-opacity=".35" stroke-width="4"/>
+  </g>
+  <!-- crisp top rim -->
+  <path d="M 40,224 C 86,116 258,36 420,26 C 508,20 560,54 600,92 C 640,54 692,20 780,26 C 942,36 1114,116 1160,224"
+        fill="none" stroke="#FFF7DC" stroke-opacity=".65" stroke-width="5"/>
+</svg>

@@ -281,6 +281,26 @@ em.i{font-style:italic;color:var(--gold-hi)}
 .card.wide .media{aspect-ratio:21/8}
 @media(max-width:860px){.gath{grid-template-columns:1fr}.card.wide .media{aspect-ratio:16/10}}
 
+/* ========== FOUNDER ========== */
+.founder{background:linear-gradient(180deg,#050505,#0b0a09 45%,#050505)}
+.fdr{display:grid;grid-template-columns:.85fr 1fr;gap:clamp(34px,6vw,96px);align-items:center}
+.fdr .media.portrait{aspect-ratio:3/4}
+.fdr .media.portrait::after{background:linear-gradient(to top,rgba(5,5,5,.5),transparent 62%)}
+@media(max-width:860px){.fdr{grid-template-columns:1fr}}
+
+/* ========== MEMBERSHIP ========== */
+.membership{background:
+  radial-gradient(80% 55% at 50% 0%,rgba(200,169,106,.07),transparent 70%),#050505}
+.terms{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:56px}
+.term{background:var(--ink);padding:clamp(26px,2.6vw,40px);transition:background .6s}
+.term:hover{background:var(--ink-3)}
+.term .k{display:block;font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.term b{display:block;font-family:var(--ff-display);font-style:italic;font-size:clamp(22px,2.1vw,30px);
+  color:var(--bone);margin-bottom:14px;line-height:1.1}
+.term p{margin:0;color:var(--bone-dim);font-weight:200;font-size:14.5px}
+@media(max-width:820px){.terms{grid-template-columns:1fr}}
+
 /* ========== CIRCLE ========== */
 .circle-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);
   border:1px solid var(--line)}
@@ -405,8 +425,9 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
     <a href="#verdict">The Verdict</a>
     <a href="#mask">The Mask</a>
     <a href="#doctrine">Doctrine</a>
-    <a href="#engine">The Engine</a>
+    <a href="#engine">Time Machine</a>
     <a href="#gatherings">Gatherings</a>
+    <a href="#founder">The Founder</a>
     <a href="#audience">Audience</a>
   </nav>
   <a class="cta" href="#audience">Request an Audience</a>
@@ -509,7 +530,7 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
 <section class="pad doctrine" id="doctrine">
   <div class="wrap">
     <p class="eyebrow rv">Chapter III — Doctrine</p>
-    <h2 class="rv" data-d="1" style="max-width:14ch">Six lines we <em class="i">do not</em> cross.</h2>
+    <h2 class="rv" data-d="1" style="max-width:14ch">Seven lines we <em class="i">do not</em> cross.</h2>
     <div class="tenets" style="margin-top:56px">
       <div class="tenet rv"><span class="num">01</span><h3>Loyalty Before Opportunity</h3>
         <p>We answer the call before we ask what it pays. A member's problem at 2am outranks a stranger's offer at noon. Loyalty is proven in inconvenience, never in comfort.</p></div>
@@ -521,7 +542,9 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
         <p>Open-minded, creative, intelligent — and dangerous at one specific thing. Range is the culture. Depth is the ticket.</p></div>
       <div class="tenet rv" data-d="4"><span class="num">05</span><h3>Discretion Is Luxury</h3>
         <p>What is said at the table stays at the table. No screenshots, no name-drops, no performance. The quietest room in the city is the most valuable one.</p></div>
-      <div class="tenet rv" data-d="5"><span class="num">06</span><h3>No Door Back</h3>
+      <div class="tenet rv" data-d="5"><span class="num">06</span><h3>Train Like It Matters</h3>
+        <p>The body is the first thing you own and the last thing you can outsource. Everyone here trains — not for the mirror, for the discipline. A man who can't keep a promise to himself at 5am won't keep one to you at 5pm.</p></div>
+      <div class="tenet rv" data-d="6"><span class="num">07</span><h3>No Door Back</h3>
         <p>We forgive, we don't rewind. The people who bet against you don't get equity in the outcome. Grace, yes. Access, no.</p></div>
     </div>
   </div>
@@ -531,13 +554,18 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
 <section class="pad engine" id="engine">
   <div class="media" data-asset="VLN-VID-02" data-type="video"></div>
   <div class="wrap">
-    <p class="eyebrow rv" style="justify-content:center">Chapter IV — The Engine</p>
+    <p class="eyebrow rv" style="justify-content:center">Chapter IV — The Time Machine</p>
     <h2 class="rv" data-d="1" style="max-width:18ch;margin:0 auto">He built a machine that <em class="i">prints time.</em></h2>
     <p class="lead rv" data-d="2" style="margin:30px auto 0;text-align:center">
       The Matrix is simple: work for money, buy things, repeat until you're out of days.
       So one man went and built something that breaks the loop — quietly, mathematically, every single session.
       We don't discuss its mechanics in public. We only discuss what it buys back: <em class="i">hours.</em>
       Hours to grow, to travel, to teach, to be present. That's the whole point. The money was never the trophy.
+    </p>
+    <p class="lead rv" data-d="3" style="margin:22px auto 0;text-align:center">
+      <em class="i">The Time Machine comes with the seat.</em> It isn't sold, upsold, or offered as a tier —
+      it is simply what a member has access to, from the day the room agrees on him.
+      Nobody here is anybody's customer.
     </p>
     <div class="tape rv" data-d="3"><div>
       <span>SESSION OPEN</span><span>◆</span><span>SIGNAL</span><span>◆</span><span>CONVICTION</span><span>◆</span><span>SIZE</span><span>◆</span><span>EXIT</span><span>◆</span><span>COMPOUND</span><span>◆</span><span>REPEAT</span><span>◆</span>
@@ -607,7 +635,105 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
           <p>The working session. Real numbers, real failures, real capital moving between members. This is the room the whole thing was built for.</p>
         </div>
       </div>
+      <div class="card rv" data-d="5">
+        <div class="tag">Summer</div>
+        <div class="media" data-asset="VLN-IMG-10"></div>
+        <div class="body">
+          <div class="meta"><span>Ibiza</span><span>Balearics · July</span></div>
+          <h3>The island doesn't sleep. Neither do we.</h3>
+          <p>A villa above the cliffs, a table nobody else can book, and a week that starts at midnight. Come for the party. Stay for the 6am conversation on the terrace that changes your year.</p>
+        </div>
+      </div>
+      <div class="card rv" data-d="6">
+        <div class="tag">Winter</div>
+        <div class="media" data-asset="VLN-IMG-11"></div>
+        <div class="body">
+          <div class="meta"><span>Miami</span><span>Penthouse · Off-Season</span></div>
+          <h3>We can't change the weather.<br>So we change the location.</h3>
+          <p>When the city turns grey, the jet is already warm. Forty floors up, floor-to-ceiling glass, black water below. Nobody here negotiates with a season.</p>
+        </div>
+      </div>
+      <div class="card rv" data-d="1">
+        <div class="tag">Bi-Annual</div>
+        <div class="media" data-asset="VLN-IMG-12"></div>
+        <div class="body">
+          <div class="meta"><span>The Charter</span><span>Open Water</span></div>
+          <h3>No address, no signal, no exit.</h3>
+          <p>Four days on the water with the people you'd call first. The only room where a phone is genuinely useless — which is exactly why the real conversations happen there.</p>
+        </div>
+      </div>
+      <div class="card wide rv" data-d="2">
+        <div class="tag">Pilgrimage · Annual</div>
+        <div class="media" data-asset="VLN-IMG-13"></div>
+        <div class="body">
+          <div class="meta"><span>South Africa</span><span>Cape Town · Return</span></div>
+          <h3>Some trips are holidays. This one is a return.</h3>
+          <p>Cape Town, the coast road, the Karoo at night with more stars than you've earned the right to see. We go for the beauty, but we come back different — because standing on that ground reframes exactly what all of this was for. Everyone makes this one at least once.</p>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- ========= FOUNDER ========= -->
+<section class="pad founder" id="founder">
+  <div class="wrap fdr">
+    <div class="rv">
+      <div class="media portrait" data-asset="VLN-FDR-01"></div>
+    </div>
+    <div>
+      <p class="eyebrow rv">Chapter VII — The Founder</p>
+      <h2 class="rv" data-d="1">One man, and then <em class="i">a room.</em></h2>
+      <p class="lead rv" data-d="2" style="margin-top:30px">
+        Everything here started with somebody who got counted out and decided the scoreboard was wrong.
+        No inheritance, no shortcut, no room he was born into — just a long stretch of being underestimated
+        and a refusal to be quiet about what he was building.
+      </p>
+      <p class="lead rv" data-d="3" style="margin-top:22px">
+        He built the machine first. Then he did the thing almost nobody does with an edge:
+        <em class="i">he handed it to his people.</em> Not sold. Handed. That decision is the entire reason
+        this exists — and it's still the standard every member is measured against.
+      </p>
+      <blockquote class="quote rv" data-d="4">
+        “I didn't build it to get out of the room.<br>I built it so I could bring the room with me.”
+        <small>— The Founder</small>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ========= MEMBERSHIP ========= -->
+<section class="pad membership" id="membership">
+  <div class="wrap">
+    <p class="eyebrow rv" style="justify-content:center">The Terms</p>
+    <h2 class="rv" data-d="1" style="max-width:16ch;margin:0 auto;text-align:center">
+      When you join, you're <em class="i">family.</em>
+    </h2>
+    <p class="lead rv" data-d="2" style="margin:30px auto 0;text-align:center">
+      There is no monthly fee and no membership tier. There is a seat, and there is what the seat costs you —
+      which has never been money.
+    </p>
+    <div class="terms rv" data-d="3">
+      <div class="term">
+        <span class="k">What's included</span>
+        <b>The Time Machine</b>
+        <p>Access to the engine that buys the hours back. It comes with the seat. It is never a product you are sold.</p>
+      </div>
+      <div class="term">
+        <span class="k">What it costs</span>
+        <b>Tight loyalty</b>
+        <p>Your tenure is measured in loyalty, not in years or dollars. Show up, pour in, keep the table's business at the table. That's the invoice.</p>
+      </div>
+      <div class="term">
+        <span class="k">What you become</span>
+        <b>Family</b>
+        <p>Not a network, not a mastermind, not a group chat. When you're in, your problem is our problem and your win is on all of us.</p>
+      </div>
+    </div>
+    <p class="lead rv" data-d="4" style="margin:44px auto 0;text-align:center;max-width:52ch">
+      And the reverse is just as plain: loyalty is the only thing that can end it.
+      Nobody is removed for a bad quarter. People are removed for a bad character.
+    </p>
   </div>
 </section>
 
@@ -634,7 +760,7 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
 <section class="pad audience" id="audience">
   <div class="wrap">
     <div style="max-width:760px">
-      <p class="eyebrow rv">Chapter VII — Request an Audience</p>
+      <p class="eyebrow rv">Chapter VIII — Request an Audience</p>
       <h2 class="rv" data-d="1">You don't apply.<br>You're <em class="i">received.</em></h2>
       <p class="lead rv" data-d="2" style="margin-top:30px">
         There is no membership fee, no tier, no upsell. There is a conversation — and it either happens or it doesn't.
@@ -684,7 +810,8 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
     <p class="say">“We were never the villains.<br>We were just the ones who didn't stay down.”</p>
     <div class="fnav">
       <a href="#verdict">Verdict</a><a href="#mask">Mask</a><a href="#doctrine">Doctrine</a>
-      <a href="#engine">Engine</a><a href="#gatherings">Gatherings</a><a href="#audience">Audience</a>
+      <a href="#engine">Time Machine</a><a href="#gatherings">Gatherings</a>
+      <a href="#founder">Founder</a><a href="#membership">Terms</a><a href="#audience">Audience</a>
     </div>
     <p class="fine">Team Villain · By Invitation · MMXXVI</p>
   </div>
