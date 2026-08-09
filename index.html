@@ -342,6 +342,27 @@ footer .fnav a{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;colo
 footer .fnav a:hover{color:var(--gold)}
 footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#3d3a35}
 
+/* ========== SOUND ========== */
+/* Browsers refuse to autoplay audio without a gesture, and audio that starts on
+   its own reads as an ambush anyway — so sound is opt-in, and it says so. */
+.sound{position:fixed;left:var(--gut);bottom:26px;z-index:8200;display:flex;align-items:center;gap:11px;
+  background:rgba(5,5,5,.72);backdrop-filter:blur(12px);border:1px solid var(--line);
+  padding:10px 16px 10px 13px;cursor:pointer;transition:.5s var(--ease);font:inherit}
+.sound:hover{border-color:rgba(200,169,106,.45);background:rgba(10,9,8,.86)}
+.sound .lbl{font-family:var(--ff-ui);font-size:9px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--bone-dim);transition:color .4s}
+.sound:hover .lbl,.sound[aria-pressed="true"] .lbl{color:var(--gold)}
+.sound .eq{display:flex;align-items:flex-end;gap:2.5px;height:13px}
+.sound .eq i{display:block;width:2px;height:3px;background:var(--gold);opacity:.55;
+  transform-origin:bottom;transition:opacity .4s}
+.sound[aria-pressed="true"] .eq i{opacity:1;animation:eq 1.15s ease-in-out infinite}
+.sound[aria-pressed="true"] .eq i:nth-child(2){animation-delay:.18s;animation-duration:.9s}
+.sound[aria-pressed="true"] .eq i:nth-child(3){animation-delay:.36s;animation-duration:1.35s}
+.sound[aria-pressed="true"] .eq i:nth-child(4){animation-delay:.09s;animation-duration:1.05s}
+@keyframes eq{0%,100%{height:3px}50%{height:13px}}
+@media(prefers-reduced-motion:reduce){.sound[aria-pressed="true"] .eq i{animation:none;height:8px}}
+@media(max-width:640px){.sound{padding:9px 13px;bottom:18px}.sound .lbl{display:none}}
+
 /* progress */
 .prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold-lo),var(--gold),var(--gold-hi));z-index:8500;transition:width .12s linear}
 </style>
@@ -353,6 +374,12 @@ footer .fine{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;colo
 <canvas id="embers"></canvas>
 <div class="cursor" id="cur"></div>
 <div class="prog" id="prog"></div>
+
+<button class="sound" id="sound" aria-pressed="false" aria-label="Play ambient sound">
+  <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <span class="lbl">Sound</span>
+</button>
+<audio id="bed" loop preload="none" src="assets/VLN-AUD-01.mp3"></audio>
 
 <!-- ========= EMBLEM (inline SVG master; cloned everywhere) ========= -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -965,6 +992,49 @@ addEventListener('scroll', ()=>{
     heroMark.style.opacity = Math.max(0, 1 - y/(innerHeight*.72));
   }
 }, {passive:true});
+
+/* ============ SOUND ============ */
+(function(){
+  const btn = document.getElementById('sound');
+  const bed = document.getElementById('bed');
+  const TARGET = 0.42;          // background level — it should sit under the reading, not over it
+  let fade = null;
+
+  const ramp = (to, ms, done) => {
+    clearInterval(fade);
+    const from = bed.volume, t0 = performance.now();
+    fade = setInterval(() => {
+      const k = Math.min(1, (performance.now()-t0)/ms);
+      bed.volume = from + (to-from)*k;
+      if (k === 1){ clearInterval(fade); done && done(); }
+    }, 25);
+  };
+
+  const on = () => {
+    bed.volume = 0;
+    bed.play().then(() => {
+      btn.setAttribute('aria-pressed','true');
+      btn.setAttribute('aria-label','Mute ambient sound');
+      ramp(TARGET, 1400);
+    }).catch(() => {});   // blocked or unsupported — leave the button as-is
+  };
+  const off = () => {
+    btn.setAttribute('aria-pressed','false');
+    btn.setAttribute('aria-label','Play ambient sound');
+    ramp(0, 700, () => bed.pause());
+  };
+
+  btn.addEventListener('click', () => bed.paused ? on() : off());
+
+  // don't keep playing into a tab nobody is looking at
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && !bed.paused) { bed.pause(); bed.dataset.resume = '1'; }
+    else if (!document.hidden && bed.dataset.resume) {
+      delete bed.dataset.resume;
+      if (btn.getAttribute('aria-pressed') === 'true') bed.play().catch(()=>{});
+    }
+  });
+})();
 
 /* ============ FORM ============ */
 document.getElementById('audienceForm').addEventListener('submit', e=>{
